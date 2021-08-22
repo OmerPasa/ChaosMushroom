@@ -13,6 +13,7 @@ public class DistanceMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float distance = Vector3.Distance (object1.transform.position, object2.transform.position);
+
     }
 }
