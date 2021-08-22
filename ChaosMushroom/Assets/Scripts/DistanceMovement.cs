@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class DistanceMovement : MonoBehaviour
 {
-    public int chaos = 0;
     public GameObject main;
     public float distance = 0;
+    int chaos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +17,10 @@ public class DistanceMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distances = Vector3.Distance (main.transform.position, object2.transform.position);
-        if (chaos - distance >= 0)
+        float distances = Vector3.Distance (main.transform.position, transform.position);
+        if (CHAOS.chaosValue - distance >= 0)
         {
-            chaos - distance += distances;
+        CHAOS.chaosValue - distance += chaos;
         }
     }
 }

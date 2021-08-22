@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CHAOS : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static int chaosValue = 0;
+    Text chaos;
     void Start()
     {
-        
+        chaos = GetComponent<Text>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        chaos.text = "Chaos: " + chaosValue;
     }
 }
