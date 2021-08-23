@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: 63878f6bf1015104b997baf96fd862c7
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8157745162154260676
+    second: Player_Movement_Firing
+  - first:
+      213: -1792723420458016365
+    second: Player_Movement_Firing2
+  - first:
+      213: -4411697886244043798
+    second: Player_Movement_Firing3
+  - first:
+      213: -7646242759282783566
+    second: Player_Movement_Firing4
+  - first:
+      213: -5138326602890768857
+    second: yurume_silah_ates1.1_4
+  - first:
+      213: 7305672871324936276
+    second: Player_Jump_Firing
+  - first:
+      213: 9156473366069327153
+    second: Player_Jump_Firing2
+  - first:
+      213: -6877693461651872880
+    second: yurume_silah_ates1.1_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,7 +147,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Player_Movement_Firing
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 45
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c8bd5ed002263170800000000000000
+      internalID: 8157745162154260676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Movement_Firing2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 46
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 391a31f1c87fe17e0800000000000000
+      internalID: -1792723420458016365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Movement_Firing3
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 46
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae3051a852086c2c0800000000000000
+      internalID: -4411697886244043798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Movement_Firing4
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 45
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ba0c82d8b613e590800000000000000
+      internalID: -7646242759282783566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Jump_Firing
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 25
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 458e784f4c6f26560800000000000000
+      internalID: 7305672871324936276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Jump_Firing2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 24
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13533eb6304521f70800000000000000
+      internalID: 9156473366069327153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

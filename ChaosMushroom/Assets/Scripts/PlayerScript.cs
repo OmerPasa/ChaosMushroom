@@ -2,11 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField]
     private float walkSpeed = 5f;
+
+    [SerializeField]
+    Transform groundCheck;
 
     private Animator animator;
 
@@ -25,11 +32,11 @@ public class PlayerScript : MonoBehaviour
     private float attackDelay = 0.3f;
 
     //Animation States
-    const string PLAYER_IDLE = "Player_idle";
-    const string PLAYER_RUN = "Player_run";
-    const string PLAYER_JUMP = "Player_jump";
-    const string PLAYER_ATTACK = "Player_attack";
-    const string PLAYER_AIR_ATTACK = "Player_air_attack";
+    const string PLAYER_IDLE = "Player_Idle_Gun";
+    const string PLAYER_RUN = "Player_Movement_Gun";
+    const string PLAYER_JUMP = "Player_Jump_Gun";
+    const string PLAYER_ATTACK = "Player_Movement_Firing";
+    const string PLAYER_AIR_ATTACK = "Player_Jump_Firing";
 
     //=====================================================
     // Start is called before the first frame update
@@ -38,7 +45,7 @@ public class PlayerScript : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        groundMask = 1 << LayerMask.NameToLayer("Ground");
+       // groundMask = 1 << LayerMask.NameToLayer("Ground");
 
     }
 
@@ -69,9 +76,18 @@ public class PlayerScript : MonoBehaviour
     private void FixedUpdate()
     {
         //check if player is on the ground
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundMask);
+        /*RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundMask);
 
         if (hit.collider != null)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+            Console.WriteLine(false);
+        }*/
+        if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
         {
             isGrounded = true;
         }
@@ -127,7 +143,6 @@ public class PlayerScript : MonoBehaviour
         //assign the new velocity to the rigidbody
         rb2d.velocity = vel;
 
-
         //attack
         if (isAttackPressed)
         {
@@ -145,18 +160,10 @@ public class PlayerScript : MonoBehaviour
                 {
                     ChangeAnimationState(PLAYER_AIR_ATTACK);
                 }
-
-  
                 Invoke("AttackComplete", attackDelay);
-
-
             }
-
-
         }
-
     }
-
     void AttackComplete()
     {
         isAttacking = false;
