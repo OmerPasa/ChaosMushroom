@@ -1,0 +1,577 @@
+fileFormatVersion: 2
+guid: 6fe78aa3584b39a47ba04edb84cc5438
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3930236664886567867
+    second: Player_Movement_Gunless
+  - first:
+      213: -6798162690675529846
+    second: Player_Movement_Gunless2
+  - first:
+      213: 2672417142114870466
+    second: Player_Movement_Gunless_Jump
+  - first:
+      213: -5775913708855984166
+    second: Player_Movement_Gunless_Jump2
+  - first:
+      213: 48937713708570984
+    second: Player_Movement_Gun
+  - first:
+      213: -1802784957063226455
+    second: Player_Movement_Gun2
+  - first:
+      213: -7227839002435390423
+    second: Player_Gun_Jump1
+  - first:
+      213: 568278880643202952
+    second: Player_Gun_Jump2
+  - first:
+      213: 4146529952689320039
+    second: Player_Movement_Gunless_1
+  - first:
+      213: 6979361019205017807
+    second: Player_Movement_Gunless2
+  - first:
+      213: -1698803321364681088
+    second: Player_Movement_Gunless3
+  - first:
+      213: -8935947456653010853
+    second: Player_Movement_Gunless4
+  - first:
+      213: -4021411097338542295
+    second: Player_Movement_Gun1
+  - first:
+      213: -5218410438047725636
+    second: Player_Movement_Gun2
+  - first:
+      213: 6517728909807279860
+    second: Player_Movement_Gun3
+  - first:
+      213: 8268413690926834421
+    second: Player_Movement_Gun4
+  - first:
+      213: -6604569447242635339
+    second: hareket_full_16
+  - first:
+      213: -1991079868493287140
+    second: Player_Idle_Gunless
+  - first:
+      213: 4520119563992133767
+    second: Player_Idle_Gunless2
+  - first:
+      213: 219576590486199073
+    second: Player_Jump_Gunless
+  - first:
+      213: -1584583128488068254
+    second: Player_Jump_Gunless2
+  - first:
+      213: -6628057377287486336
+    second: Player_Idle_Gun
+  - first:
+      213: 2613520604959611566
+    second: Player_Idle_Gun2
+  - first:
+      213: -8452663491820244556
+    second: Player_Jump_Gun
+  - first:
+      213: -3057680483770836620
+    second: Player_Jump_Gun2
+  - first:
+      213: -2082472751168952207
+    second: Player_Movement_Gunless1
+  - first:
+      213: 975721800779063316
+    second: Player_Movement_Gunless2
+  - first:
+      213: -207087929867566100
+    second: Player_Movement_Gunless3
+  - first:
+      213: -1539817518279404286
+    second: Player_Movement_Gunless4
+  - first:
+      213: 2810012295613143515
+    second: Player_Movement_Gun1
+  - first:
+      213: -1006709074008865367
+    second: Player_Movement_Gun2
+  - first:
+      213: 23213491599504769
+    second: Player_Movement_Gun3
+  - first:
+      213: -8222429025391896773
+    second: Player_Movement_Gun4
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 2
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player_Idle_Gunless
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 108
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c11b607a8634e54e0800000000000000
+      internalID: -1991079868493287140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Idle_Gunless2
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 108
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7807b0a7bc0babe30800000000000000
+      internalID: 4520119563992133767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Jump_Gunless
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 108
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12bdbe4eeb71c0300800000000000000
+      internalID: 219576590486199073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Jump_Gunless2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 108
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26b34654a0e620ae0800000000000000
+      internalID: -1584583128488068254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Idle_Gun
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 83
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0844fdbaee86404a0800000000000000
+      internalID: -6628057377287486336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Idle_Gun2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 83
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa18c7a427154420800000000000000
+      internalID: 2613520604959611566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Jump_Gun
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 83
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b1342c965b12ba80800000000000000
+      internalID: -8452663491820244556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Jump_Gun2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 83
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479d130eccfe095d0800000000000000
+      internalID: -3057680483770836620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Movement_Gunless1
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 55
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178e424f0129913e0800000000000000
+      internalID: -2082472751168952207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Movement_Gunless2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 55
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4106a07eec57a8d00800000000000000
+      internalID: 975721800779063316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Movement_Gunless3
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 55
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce309feff96402df0800000000000000
+      internalID: -207087929867566100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Movement_Gunless4
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 55
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 205580c102871aae0800000000000000
+      internalID: -1539817518279404286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Movement_Gun1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 29
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd950867b4b2ff620800000000000000
+      internalID: 2810012295613143515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Movement_Gun2
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 29
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a50a835e637702f0800000000000000
+      internalID: -1006709074008865367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Movement_Gun3
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 29
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185f8c03c88725000800000000000000
+      internalID: 23213491599504769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Movement_Gun4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 29
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3797ae9d5014ed80800000000000000
+      internalID: -8222429025391896773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5fb65c34fd0064c4a80b444b9fc3bd9c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
