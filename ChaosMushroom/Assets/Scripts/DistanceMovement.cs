@@ -14,7 +14,7 @@ public class DistanceMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CHAOS.chaosValue == distance;
+        CHAOS.chaosValue = (int)distance;
     }
 
     // Update is called once per frame
