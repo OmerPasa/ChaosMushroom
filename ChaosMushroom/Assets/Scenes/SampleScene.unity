@@ -601,6 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   groundCheck: {fileID: 1313926793}
+  jumpForce: 200
   attackDelay: 0.3
 --- !u!61 &706664059
 BoxCollider2D:

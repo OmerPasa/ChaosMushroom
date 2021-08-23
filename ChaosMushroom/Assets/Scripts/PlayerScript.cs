@@ -21,6 +21,7 @@ public class PlayerScript : MonoBehaviour
     private float yAxis;
     private Rigidbody2D rb2d;
     private bool isJumpPressed;
+    [SerializeField]
     private float jumpForce = 850;
     private int groundMask;
     private bool isGrounded;
