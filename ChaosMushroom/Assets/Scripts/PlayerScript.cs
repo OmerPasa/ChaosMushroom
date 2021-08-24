@@ -28,6 +28,8 @@ public class PlayerScript : MonoBehaviour
     private string currentAnimaton;
     private bool isAttackPressed;
     private bool isAttacking;
+    AudioSource m_MyAudioSource;
+    public AudioSource BackGroundM;
 
     [SerializeField]
     private float attackDelay = 0.3f;
@@ -46,6 +48,9 @@ public class PlayerScript : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        m_MyAudioSource = GetComponent<AudioSource>();
+        AudioSource BackGroundM = GameObject.Find("BackGroundMusic").GetComponent<AudioSource>();
+       // volumeBack volumeBack = gameObject.GetComponent<float>();
        // groundMask = 1 << LayerMask.NameToLayer("Ground");
 
     }
@@ -156,10 +161,15 @@ public class PlayerScript : MonoBehaviour
                 if(isGrounded)
                 {
                     ChangeAnimationState(PLAYER_ATTACK);
+                    m_MyAudioSource.Play();
+                    BackGroundM.Stop();
+
                 }
                 else
                 {
                     ChangeAnimationState(PLAYER_AIR_ATTACK);
+                    m_MyAudioSource.Play();
+                    BackGroundM.Stop();
                 }
                 Invoke("AttackComplete", attackDelay);
             }
@@ -168,6 +178,8 @@ public class PlayerScript : MonoBehaviour
     void AttackComplete()
     {
         isAttacking = false;
+        m_MyAudioSource.Stop();
+        BackGroundM.Play();
     }
 
     //=====================================================
