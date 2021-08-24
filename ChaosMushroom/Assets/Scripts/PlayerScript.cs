@@ -162,14 +162,14 @@ public class PlayerScript : MonoBehaviour
                 {
                     ChangeAnimationState(PLAYER_ATTACK);
                     m_MyAudioSource.Play();
-                    BackGroundM.Stop();
+                    BackGroundM.volume = 0.1f;
 
                 }
                 else
                 {
                     ChangeAnimationState(PLAYER_AIR_ATTACK);
                     m_MyAudioSource.Play();
-                    BackGroundM.Stop();
+                    BackGroundM.volume = 0.1f;
                 }
                 Invoke("AttackComplete", attackDelay);
             }
@@ -179,7 +179,7 @@ public class PlayerScript : MonoBehaviour
     {
         isAttacking = false;
         m_MyAudioSource.Stop();
-        BackGroundM.Play();
+        BackGroundM.volume = 0.4f;
     }
 
     //=====================================================
