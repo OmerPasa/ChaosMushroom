@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class BulletScriptt : MonoBehaviour
 {
     [SerializeField]
-    float speed = 20f;
+    float speed = 5f;
 
     [SerializeField]
     int damage;
     private Rigidbody2D rb2d;
     
     // Start is called before the first frame update
-    void StartShooting(bool isFacingLeft)
+    public void StartShooting(bool isFacingLeft)
     {
         
         rb2d = GetComponent<Rigidbody2D>();
@@ -26,7 +26,7 @@ public class BulletScript : MonoBehaviour
         }
         
         
-        Destroy(gameObject, 1f);
+        //Destroy(gameObject, 20f);
     }
 
     void OnTriggerEnter2D (Collider2D hitInfo)

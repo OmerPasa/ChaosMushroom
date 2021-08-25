@@ -53,7 +53,7 @@ public class PlayerScript : MonoBehaviour
         animator = GetComponent<Animator>();
         m_MyAudioSource = GetComponent<AudioSource>();
         AudioSource BackGroundM = GameObject.Find("BackGroundMusic").GetComponent<AudioSource>();
-        BulletScript BulletPre =GameObject.Find("BulletPrefab").GetComponent<BulletScript>();
+        BulletScriptt BulletPre =GameObject.Find("BulletPrefab").GetComponent<BulletScriptt>();
        // volumeBack volumeBack = gameObject.GetComponent<float>();
        // groundMask = 1 << LayerMask.NameToLayer("Ground");
 
@@ -94,7 +94,7 @@ public class PlayerScript : MonoBehaviour
         {
             isAttackPressed = true;
             Instantiate(BulletPre,firePoint.position,firePoint.rotation);
-            BulletPre.GetComponent<BulletScript>().StartShooting(isFacingLeft);
+            BulletPre.GetComponent<BulletScriptt>().StartShooting(isFacingLeft);
             BulletPre.transform.position = firePoint.transform.position;
         }
     }
