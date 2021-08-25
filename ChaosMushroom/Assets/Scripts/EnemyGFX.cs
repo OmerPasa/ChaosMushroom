@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyGFX : MonoBehaviour
 {
+    [SerializeField]
     public AIPath aiPath;
     // Start is called before the first frame update
     void Start()
