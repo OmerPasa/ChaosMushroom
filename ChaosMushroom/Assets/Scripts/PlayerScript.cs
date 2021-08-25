@@ -10,7 +10,7 @@ using System;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField]
-    private float walkSpeed = 5f;
+    private float runSpeed = 5f;
 
     [SerializeField]
     Transform groundCheck;
@@ -31,6 +31,8 @@ public class PlayerScript : MonoBehaviour
     AudioSource m_MyAudioSource;
     public AudioSource BackGroundM;
     public bool isFacingLeft;
+    public Transform firePoint;
+    public GameObject BulletPre;
 
     [SerializeField]
     private float attackDelay = 0.3f;
@@ -51,6 +53,7 @@ public class PlayerScript : MonoBehaviour
         animator = GetComponent<Animator>();
         m_MyAudioSource = GetComponent<AudioSource>();
         AudioSource BackGroundM = GameObject.Find("BackGroundMusic").GetComponent<AudioSource>();
+        BulletScript BulletPre =GameObject.Find("BulletPrefab").GetComponent<BulletScript>();
        // volumeBack volumeBack = gameObject.GetComponent<float>();
        // groundMask = 1 << LayerMask.NameToLayer("Ground");
 
@@ -63,14 +66,22 @@ public class PlayerScript : MonoBehaviour
     {
         //Checking for inputs
         xAxis = Input.GetAxisRaw("Horizontal");
-        /*
+        
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rb2d.velocity = new Vector2(runSpeed, rb2d.velocity.y);
 
             transform.localScale = new Vector3(1, 1, 1);
+            isFacingLeft = false;
         }
-        */
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            rb2d.velocity = new Vector2(-runSpeed, rb2d.velocity.y);
+
+            transform.localScale = new Vector3(-1, 1, 1);
+            isFacingLeft = true;
+        }
+        
         
         //space jump key pressed?
         if (Input.GetKeyDown(KeyCode.Space))
@@ -79,9 +90,12 @@ public class PlayerScript : MonoBehaviour
         }
 
         //space Atatck key pressed?
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKey(KeyCode.LeftControl))
         {
             isAttackPressed = true;
+            Instantiate(BulletPre,firePoint.position,firePoint.rotation);
+            BulletPre.GetComponent<BulletScript>().StartShooting(isFacingLeft);
+            BulletPre.transform.position = firePoint.transform.position;
         }
     }
 
@@ -100,7 +114,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         //------------------------------------------
-
+        /*
         //Check update movement based on input
         Vector2 vel = new Vector2(0, rb2d.velocity.y);
 
@@ -108,14 +122,12 @@ public class PlayerScript : MonoBehaviour
         {
             vel.x = -walkSpeed;
             transform.localScale = new Vector2(-1, 1);
-            isFacingLeft = true;
 
         }
         else if (xAxis > 0)
         {
             vel.x = walkSpeed;
             transform.localScale = new Vector2(1, 1);
-            isFacingLeft = false;
         }
         else
         {
@@ -125,7 +137,7 @@ public class PlayerScript : MonoBehaviour
 
         //assign the new velocity to the rigidbody
         rb2d.velocity = vel;
-        
+        */
         if (isGrounded && !isAttacking)
         {
             if (xAxis != 0)
@@ -169,7 +181,7 @@ public class PlayerScript : MonoBehaviour
             if (!isAttacking)
             {
                 isAttacking = true;
-                
+
 
                 if(isGrounded)
                 {
