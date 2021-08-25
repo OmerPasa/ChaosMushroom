@@ -16,7 +16,7 @@ public class SpawnArea : MonoBehaviour
     }
     IEnumerator EnemyDrop()
    {
-       while (enemyCount < 10)
+       while (enemyCount < 5)
        {
            xPos = (int)Random.Range(-1f,1f);
            yPos = (int)Random.Range(8f,-7f);

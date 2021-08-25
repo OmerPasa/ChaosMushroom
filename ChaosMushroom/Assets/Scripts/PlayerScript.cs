@@ -70,7 +70,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         //space Atatck key pressed?
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             isAttackPressed = true;
         }
