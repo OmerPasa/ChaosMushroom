@@ -10,9 +10,11 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     int damage;
     private Rigidbody2D rb2d;
+    
     // Start is called before the first frame update
-    void Start(bool isFacingLeft)
+    void StartShooting(bool isFacingLeft)
     {
+        
         rb2d = GetComponent<Rigidbody2D>();
         if (isFacingLeft)
         {
