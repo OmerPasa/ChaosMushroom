@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 20f;
+    [SerializeField]
+    float speed = 20f;
+
+    [SerializeField]
+    int damage;
     private Rigidbody2D rb2d;
     // Start is called before the first frame update
-    void Start()
+    void Start(bool isFacingLeft)
     {
         rb2d = GetComponent<Rigidbody2D>();
-        rb2d.velocity = transform.right * speed;
+        if (isFacingLeft)
+        {
+            rb2d.velocity = new Vector2(-speed, 0);
+        }
+        else
+        {
+            rb2d.velocity = new Vector2(speed, 0);
+        }
+        
+        
         Destroy(gameObject, 1f);
     }
 
