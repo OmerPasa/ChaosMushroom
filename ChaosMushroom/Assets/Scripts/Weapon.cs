@@ -15,10 +15,6 @@ public class Weapon : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             Instantiate(BulletPrefab,firePoint.position,firePoint.rotation);
-            if(mAnimator.gameObject.activeSelf)
-            {
-            mAnimator.SetTrigger("Shoot");
-            }
             //GameObject tmp = Instantiate<GameObject>(BulletPrefab);
         }
     }

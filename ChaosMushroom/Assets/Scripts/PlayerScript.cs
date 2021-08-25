@@ -30,6 +30,7 @@ public class PlayerScript : MonoBehaviour
     private bool isAttacking;
     AudioSource m_MyAudioSource;
     public AudioSource BackGroundM;
+    public bool isFacingLeft;
 
     [SerializeField]
     private float attackDelay = 0.3f;
@@ -62,7 +63,15 @@ public class PlayerScript : MonoBehaviour
     {
         //Checking for inputs
         xAxis = Input.GetAxisRaw("Horizontal");
+        /*
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            rb2d.velocity = new Vector2(runSpeed, rb2d.velocity.y);
 
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        */
+        
         //space jump key pressed?
         if (Input.GetKeyDown(KeyCode.Space))
         { 
@@ -81,20 +90,6 @@ public class PlayerScript : MonoBehaviour
     //=====================================================
     private void FixedUpdate()
     {
-        //check if player is on the ground
-        /*RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundMask);
-
-        if (hit.collider != null)
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-            Console.WriteLine(false);
-        }*/
-
-
         if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
         {
             isGrounded = true;
@@ -112,27 +107,25 @@ public class PlayerScript : MonoBehaviour
         if (xAxis < 0)
         {
             vel.x = -walkSpeed;
-            //transform.localScale = new Vector2(-1, 1);
-            transform.Rotate(0f, 180f, 0f);
+            transform.localScale = new Vector2(-1, 1);
+            isFacingLeft = true;
 
         }
         else if (xAxis > 0)
         {
             vel.x = walkSpeed;
-            //transform.localScale = new Vector2(1, 1);
-            transform.Rotate(0f, 0f, 0f);
-
-            
+            transform.localScale = new Vector2(1, 1);
+            isFacingLeft = false;
         }
         else
         {
             vel.x = 0;
-            transform.Rotate(0f, 0f, 0f);
             
         }
+
+        //assign the new velocity to the rigidbody
+        rb2d.velocity = vel;
         
-
-
         if (isGrounded && !isAttacking)
         {
             if (xAxis != 0)
@@ -155,9 +148,18 @@ public class PlayerScript : MonoBehaviour
             ChangeAnimationState(PLAYER_JUMP);
         }
 
-        //assign the new velocity to the rigidbody
-        rb2d.velocity = vel;
-        if (vel.magnitude < 0)
+
+        /*
+        if  (rb2d.velocity.x < -1)
+        {
+            transform.Rotate(0f, 180f, 0f);
+        }else if (rb2d.velocity.x > 1)
+        {
+            transform.Rotate(0f, 0f, 0f);
+        }else
+        {
+            transform.Rotate(0f, 180f, 0f);
+        }*/
 
         //attack
         if (isAttackPressed)
@@ -167,6 +169,7 @@ public class PlayerScript : MonoBehaviour
             if (!isAttacking)
             {
                 isAttacking = true;
+                
 
                 if(isGrounded)
                 {
