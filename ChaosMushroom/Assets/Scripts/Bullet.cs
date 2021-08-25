@@ -5,11 +5,12 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = transform.right * speed;
+        rb2d = GetComponent<Rigidbody2D>();
+        rb2d.velocity = transform.right * speed;
         Destroy(gameObject, 1f);
     }
 

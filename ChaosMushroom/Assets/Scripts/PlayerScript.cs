@@ -93,6 +93,8 @@ public class PlayerScript : MonoBehaviour
             isGrounded = false;
             Console.WriteLine(false);
         }*/
+
+
         if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
         {
             isGrounded = true;
@@ -110,19 +112,26 @@ public class PlayerScript : MonoBehaviour
         if (xAxis < 0)
         {
             vel.x = -walkSpeed;
-            transform.localScale = new Vector2(-1, 1);
+            //transform.localScale = new Vector2(-1, 1);
+            transform.Rotate(0f, 180f, 0f);
+
         }
         else if (xAxis > 0)
         {
             vel.x = walkSpeed;
-            transform.localScale = new Vector2(1, 1);
+            //transform.localScale = new Vector2(1, 1);
+            transform.Rotate(0f, 0f, 0f);
+
             
         }
         else
         {
             vel.x = 0;
+            transform.Rotate(0f, 0f, 0f);
             
         }
+        
+
 
         if (isGrounded && !isAttacking)
         {
@@ -148,6 +157,7 @@ public class PlayerScript : MonoBehaviour
 
         //assign the new velocity to the rigidbody
         rb2d.velocity = vel;
+        if (vel.magnitude < 0)
 
         //attack
         if (isAttackPressed)

@@ -7,7 +7,7 @@ public class CommonEnemy : MonoBehaviour
     
     public int health = 100;
     public int count = 6;
-    public GameObject deathEffect;
+    //public GameObject deathEffect;
     // Start is called before the first frame update
     public void TakeDamage (int damage)
     {
