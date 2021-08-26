@@ -18,14 +18,7 @@ public class CommonEnemy : MonoBehaviour
         }
 
     }
-    void Start () 
-    {
-        while (count >= 0)
-        {
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
-            count -= count;
-        }
-    }
+    
     void Die ()
     {
         Destroy(gameObject);

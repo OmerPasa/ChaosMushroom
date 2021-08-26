@@ -26,10 +26,9 @@ public class BulletScriptt : MonoBehaviour
         }
         
         
-       // Destroy(gameObject, 3f);
+       Destroy(gameObject, 5f);
     }
-
-    void OnTriggerEnter2D (Collider2D hitInfo)
+    private void OnTriggerEnter2D (Collider2D hitInfo)
     {
       CommonEnemy enemy = hitInfo.GetComponent<CommonEnemy>();
       if (enemy != null)
