@@ -2008,8 +2008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86aa166d466030b4cb0675807a89738e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &981612725
-BoxCollider2D:
+--- !u!58 &981612725
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2021,19 +2021,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 0.375}
-    newSize: {x: 0.8125, y: 0.375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.034863472, y: 0.030109167}
   serializedVersion: 2
-  m_Size: {x: 0.8125, y: 0.375}
-  m_EdgeRadius: 0
+  m_Radius: 0.19865537
 --- !u!1 &1166136278
 GameObject:
   m_ObjectHideFlags: 0
