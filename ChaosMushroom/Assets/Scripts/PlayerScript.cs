@@ -80,6 +80,9 @@ public class PlayerScript : MonoBehaviour
 
             transform.localScale = new Vector3(-1, 1, 1);
             isFacingLeft = true;
+        }else if (isGrounded)
+        {
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         }
         
         
@@ -92,12 +95,17 @@ public class PlayerScript : MonoBehaviour
         //space Atatck key pressed?
         if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKey(KeyCode.LeftControl))
         {
+            GameObject B = Instantiate(BulletPre,firePoint.position,firePoint.rotation);
+            B.GetComponent<BulletScriptt>().StartShooting(isFacingLeft);
             isAttackPressed = true;
-            Instantiate(BulletPre,firePoint.position,firePoint.rotation);
-            BulletPre.GetComponent<BulletScriptt>().StartShooting(isFacingLeft);
-            //GameObject B = Instantiate(BulletPre);
-            //BulletPre.transform.position = firePoint.transform.position;
 
+            /*
+            
+            Instantiate(BulletPre,firePoint.position,firePoint.rotation);
+
+            
+            BulletPre.transform.position = firePoint.transform.position;
+            */
         }
     }
 
