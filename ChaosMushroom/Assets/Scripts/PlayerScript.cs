@@ -57,9 +57,7 @@ public class PlayerScript : MonoBehaviour
         GameObject.Find("BulletPrefab").GetComponent<BulletScriptt>();
        // volumeBack volumeBack = gameObject.GetComponent<float>();
        // groundMask = 1 << LayerMask.NameToLayer("Ground");
-       AfterFiringMusic.Play();
-       AfterFiringMusic.volume = 0.0f;
-
+       
     }
 
     //=====================================================
@@ -110,11 +108,14 @@ public class PlayerScript : MonoBehaviour
             BulletPre.transform.position = firePoint.transform.position;
             */
         }
-        if (!fireStartedMusic) 
+        /*
+        if (!fireStartedMusic)
         {
+            AfterFiringMusic.Play();
             AfterFiringMusic.volume = 1f;
             fireStartedMusic = true;
         }
+        */
     }
 
     //=====================================================
@@ -203,15 +204,15 @@ public class PlayerScript : MonoBehaviour
                 if(isGrounded)
                 {
                     ChangeAnimationState(PLAYER_ATTACK);
-                    fireStartedMusic = true;
-                    BackGroundM.volume = 0.0f;
+                    //fireStartedMusic = true;
+                    //BackGroundM.volume = 0.0f;
 
                 }
                 else
                 {
                     ChangeAnimationState(PLAYER_AIR_ATTACK);
-                    fireStartedMusic = true;
-                    BackGroundM.volume = 0.0f;
+                    //fireStartedMusic = true;
+                    //BackGroundM.volume = 0.0f;
                 }
                 Invoke("AttackComplete", attackDelay);
             }
@@ -220,7 +221,6 @@ public class PlayerScript : MonoBehaviour
     void AttackComplete()
     {
         isAttacking = false;
-
     }
 
     //=====================================================

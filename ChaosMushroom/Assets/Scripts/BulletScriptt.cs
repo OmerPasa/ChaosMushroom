@@ -28,6 +28,7 @@ public class BulletScriptt : MonoBehaviour
         
        Destroy(gameObject, 5f);
     }
+    /*
     private void OnTriggerEnter2D (Collider2D hitInfo)
     {
       CommonEnemy enemy = hitInfo.GetComponent<CommonEnemy>();
@@ -38,5 +39,6 @@ public class BulletScriptt : MonoBehaviour
       Destroy(gameObject);
       
     }
+    */
 
 }
