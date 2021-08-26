@@ -28,7 +28,7 @@ public class PlayerScript : MonoBehaviour
     private string currentAnimaton;
     private bool isAttackPressed;
     private bool isAttacking;
-    AudioSource m_MyAudioSource;
+    AudioSource FiringSound;
     public AudioSource BackGroundM;
     public bool isFacingLeft;
     public Transform firePoint;
@@ -51,9 +51,9 @@ public class PlayerScript : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        m_MyAudioSource = GetComponent<AudioSource>();
+        FiringSound = GetComponent<AudioSource>();
         AudioSource BackGroundM = GameObject.Find("BackGroundMusic").GetComponent<AudioSource>();
-        BulletScriptt BulletPre =GameObject.Find("BulletPrefab").GetComponent<BulletScriptt>();
+        GameObject.Find("BulletPrefab").GetComponent<BulletScriptt>();
        // volumeBack volumeBack = gameObject.GetComponent<float>();
        // groundMask = 1 << LayerMask.NameToLayer("Ground");
 
@@ -95,7 +95,9 @@ public class PlayerScript : MonoBehaviour
             isAttackPressed = true;
             Instantiate(BulletPre,firePoint.position,firePoint.rotation);
             BulletPre.GetComponent<BulletScriptt>().StartShooting(isFacingLeft);
-            BulletPre.transform.position = firePoint.transform.position;
+            //GameObject B = Instantiate(BulletPre);
+            //BulletPre.transform.position = firePoint.transform.position;
+
         }
     }
 
@@ -182,19 +184,18 @@ public class PlayerScript : MonoBehaviour
             {
                 isAttacking = true;
 
-
                 if(isGrounded)
                 {
                     ChangeAnimationState(PLAYER_ATTACK);
-                    m_MyAudioSource.Play();
-                    BackGroundM.volume = 0.1f;
+                    FiringSound.Play();
+                    BackGroundM.volume = 0.3f;
 
                 }
                 else
                 {
                     ChangeAnimationState(PLAYER_AIR_ATTACK);
-                    m_MyAudioSource.Play();
-                    BackGroundM.volume = 0.1f;
+                    FiringSound.Play();
+                    BackGroundM.volume = 0.4f;
                 }
                 Invoke("AttackComplete", attackDelay);
             }
@@ -203,7 +204,7 @@ public class PlayerScript : MonoBehaviour
     void AttackComplete()
     {
         isAttacking = false;
-        m_MyAudioSource.Stop();
+        FiringSound.Stop();
         BackGroundM.volume = 0.4f;
     }
 

@@ -5,17 +5,17 @@ using UnityEngine;
 public class BulletScriptt : MonoBehaviour
 {
     [SerializeField]
-    float speed = 5f;
+    float speed = 3f;
 
     [SerializeField]
     int damage;
-    private Rigidbody2D rb2d;
-    
-    // Start is called before the first frame update
+    Rigidbody2D rb2d;
+
     public void StartShooting(bool isFacingLeft)
     {
         
         rb2d = GetComponent<Rigidbody2D>();
+
         if (isFacingLeft)
         {
             rb2d.velocity = new Vector2(-speed, 0);
@@ -26,7 +26,7 @@ public class BulletScriptt : MonoBehaviour
         }
         
         
-        //Destroy(gameObject, 20f);
+       // Destroy(gameObject, 3f);
     }
 
     void OnTriggerEnter2D (Collider2D hitInfo)
