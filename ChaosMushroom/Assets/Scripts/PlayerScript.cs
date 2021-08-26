@@ -33,7 +33,6 @@ public class PlayerScript : MonoBehaviour
     public bool isFacingLeft;
     public Transform firePoint;
     public GameObject BulletPre;
-    bool fireStartedMusic = false;
 
     [SerializeField]
     private float attackDelay = 0.3f;
@@ -204,15 +203,14 @@ public class PlayerScript : MonoBehaviour
                 if(isGrounded)
                 {
                     ChangeAnimationState(PLAYER_ATTACK);
-                    //fireStartedMusic = true;
-                    //BackGroundM.volume = 0.0f;
-
+                    BackGroundM.volume = 0.0f;
+                    AfterFiringMusic.Play();
                 }
                 else
                 {
                     ChangeAnimationState(PLAYER_AIR_ATTACK);
-                    //fireStartedMusic = true;
-                    //BackGroundM.volume = 0.0f;
+                    BackGroundM.volume = 0.0f;
+                    AfterFiringMusic.Play();
                 }
                 Invoke("AttackComplete", attackDelay);
             }
@@ -220,7 +218,7 @@ public class PlayerScript : MonoBehaviour
     }
     void AttackComplete()
     {
-        isAttacking = false;
+        BackGroundM.volume = 1f;
     }
 
     //=====================================================
