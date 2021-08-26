@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid
       objectReference: {fileID: 0}
+    - target: {fileID: 7714069666043224882, guid: d04ea2a87d544bb47af2a3da3f7e6be2, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7795816620356112189, guid: d04ea2a87d544bb47af2a3da3f7e6be2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -259,6 +263,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7795816620356112189, guid: d04ea2a87d544bb47af2a3da3f7e6be2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955246083921983972, guid: d04ea2a87d544bb47af2a3da3f7e6be2, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
