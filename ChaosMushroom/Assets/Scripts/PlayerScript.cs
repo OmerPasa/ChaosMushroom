@@ -53,7 +53,7 @@ public class PlayerScript : MonoBehaviour
         animator = GetComponent<Animator>();
         AfterFiringMusic = GetComponent<AudioSource>();
         AudioSource BackGroundM = GameObject.Find("BackGroundMusic").GetComponent<AudioSource>();
-        GameObject.Find("BulletPrefab").GetComponent<BulletScriptt>();
+        BulletScriptt BulletScript = GameObject.Find("BulletPrefab").GetComponent<BulletScriptt>();
        // volumeBack volumeBack = gameObject.GetComponent<float>();
        // groundMask = 1 << LayerMask.NameToLayer("Ground");
        
@@ -219,6 +219,7 @@ public class PlayerScript : MonoBehaviour
     void AttackComplete()
     {
         BackGroundM.volume = 1f;
+        isAttacking = false;
     }
 
     //=====================================================
