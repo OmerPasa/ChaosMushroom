@@ -6,7 +6,7 @@ using System.Timers;
 public class SpawnArea : MonoBehaviour
 {
     public GameObject Trutle;
-    public GameObject SpawnAreaa;
+    //public GameObject SpawnAreaa;
     private Vector3 SpawnAreaPos;
     
 

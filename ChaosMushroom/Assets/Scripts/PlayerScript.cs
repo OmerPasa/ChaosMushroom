@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     private float runSpeed = 5f;
 
     [SerializeField]
-    Transform groundCheck;
+    public Transform groundCheck;
 
     private Animator animator;
 
@@ -89,8 +89,7 @@ public class PlayerScript : MonoBehaviour
         //space jump key pressed?
         if (Input.GetKeyDown(KeyCode.Space))
         { 
-            isJumpPressed = true; // 2 kere basılmasla düzgün yere basıp animimasyonu durduramıyor
-            
+            isJumpPressed = true;
         }
 
         //space Atatck key pressed?

@@ -10,6 +10,9 @@ public class BulletScriptt : MonoBehaviour
     [SerializeField]
     int damage;
     Rigidbody2D rb2d;
+    [SerializeField]
+    public CommonEnemy enemy;
+
 
     public void StartShooting(bool isFacingLeft)
     {
@@ -28,7 +31,7 @@ public class BulletScriptt : MonoBehaviour
         
        Destroy(gameObject, 5f);
     }
-    /*
+    
     private void OnTriggerEnter2D (Collider2D hitInfo)
     {
       CommonEnemy enemy = hitInfo.GetComponent<CommonEnemy>();
@@ -38,10 +41,14 @@ public class BulletScriptt : MonoBehaviour
       }
       Destroy(gameObject);
 
-    }*/
+    }
     private void Collision2D (Collider2D collision)
     {
         if(collision.CompareTag("Ground"))
+      {
+        Destroy(gameObject);
+      }
+        if(collision.CompareTag("Enemy"))
       {
         Destroy(gameObject);
       }
