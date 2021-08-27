@@ -8,7 +8,7 @@ public class CommonEnemy : MonoBehaviour
     public int health = 4;
     int Count;
     //public GameObject deathEffect;
-    
+    /*
     public void TakeDamage (int damage)
     {
         health -= damage;
@@ -18,7 +18,7 @@ public class CommonEnemy : MonoBehaviour
         }
 
     }
-    
+    */
     private void OnTriggerEnter2D (Collider2D collision)
     {
       if(collision.CompareTag("Bullet"))
