@@ -37,11 +37,12 @@ public class BulletScriptt : MonoBehaviour
       CommonEnemy enemy = hitInfo.GetComponent<CommonEnemy>();
       if (enemy != null)
       {
-          enemy.TakeDamage(50);
+          enemy.TakeDamage(1);
       }
       Destroy(gameObject);
 
     }
+    
     private void Collision2D (Collider2D collision)
     {
         if(collision.CompareTag("Ground"))

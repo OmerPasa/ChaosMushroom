@@ -54,8 +54,6 @@ public class PlayerScript : MonoBehaviour
         AfterFiringMusic = GetComponent<AudioSource>();
         AudioSource BackGroundM = GameObject.Find("BackGroundMusic").GetComponent<AudioSource>();
         BulletScriptt BulletScript = GameObject.Find("BulletPrefab").GetComponent<BulletScriptt>();
-       // volumeBack volumeBack = gameObject.GetComponent<float>();
-       // groundMask = 1 << LayerMask.NameToLayer("Ground");
        
     }
 
@@ -99,23 +97,7 @@ public class PlayerScript : MonoBehaviour
             B.GetComponent<BulletScriptt>().StartShooting(isFacingLeft);
             AfterFiringMusic.Play();
             isAttackPressed = true;
-
-            /*
-            
-            Instantiate(BulletPre,firePoint.position,firePoint.rotation);
-
-            
-            BulletPre.transform.position = firePoint.transform.position;
-            */
         }
-        /*
-        if (!fireStartedMusic)
-        {
-            AfterFiringMusic.Play();
-            AfterFiringMusic.volume = 1f;
-            fireStartedMusic = true;
-        }
-        */
     }
 
     //=====================================================
@@ -133,30 +115,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         //------------------------------------------
-        /*
-        //Check update movement based on input
-        Vector2 vel = new Vector2(0, rb2d.velocity.y);
-
-        if (xAxis < 0)
-        {
-            vel.x = -walkSpeed;
-            transform.localScale = new Vector2(-1, 1);
-
-        }
-        else if (xAxis > 0)
-        {
-            vel.x = walkSpeed;
-            transform.localScale = new Vector2(1, 1);
-        }
-        else
-        {
-            vel.x = 0;
-            
-        }
-
-        //assign the new velocity to the rigidbody
-        rb2d.velocity = vel;
-        */
+        
         if (isGrounded && !isAttacking)
         {
             if (xAxis != 0)
@@ -169,7 +128,6 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        //------------------------------------------
 
         //Check if trying to jump 
         if (isJumpPressed && isGrounded)
@@ -178,19 +136,6 @@ public class PlayerScript : MonoBehaviour
             isJumpPressed = false;
             ChangeAnimationState(PLAYER_JUMP);
         }
-
-
-        /*
-        if  (rb2d.velocity.x < -1)
-        {
-            transform.Rotate(0f, 180f, 0f);
-        }else if (rb2d.velocity.x > 1)
-        {
-            transform.Rotate(0f, 0f, 0f);
-        }else
-        {
-            transform.Rotate(0f, 180f, 0f);
-        }*/
 
         //attack
         if (isAttackPressed)
