@@ -6,7 +6,7 @@ public class CommonEnemy : MonoBehaviour
 {
     
     public int health = 2;
-    public int count = 6;
+    int Count;
     public GameObject deathEffect;
     // Start is called before the first frame update
     public void TakeDamage (int damage)
@@ -14,25 +14,21 @@ public class CommonEnemy : MonoBehaviour
         health -= damage;
         if (health <=0)
         {
-            Die();
+            Destroy(gameObject);
         }
 
     }
     private void OnTriggerEnter2D (Collider2D collision)
     {
       if(collision.CompareTag("Bullet"))
-      {
-          health--;
+    {
+        Destroy(collision.gameObject);
+        health--;
+        
         if (health <= 0)
         {
-            Die();
+            Destroy(gameObject);
         }
-      }
-      
     }
-    
-    void Die ()
-    {
-        Destroy(gameObject);
     }
 }

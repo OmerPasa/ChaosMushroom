@@ -89,7 +89,8 @@ public class PlayerScript : MonoBehaviour
         //space jump key pressed?
         if (Input.GetKeyDown(KeyCode.Space))
         { 
-            isJumpPressed = true;
+            isJumpPressed = true; // 2 kere basılmasla düzgün yere basıp animimasyonu durduramıyor
+            
         }
 
         //space Atatck key pressed?
@@ -97,6 +98,7 @@ public class PlayerScript : MonoBehaviour
         {
             GameObject B = Instantiate(BulletPre,firePoint.position,firePoint.rotation);
             B.GetComponent<BulletScriptt>().StartShooting(isFacingLeft);
+            AfterFiringMusic.Play();
             isAttackPressed = true;
 
             /*
@@ -210,7 +212,6 @@ public class PlayerScript : MonoBehaviour
                 {
                     ChangeAnimationState(PLAYER_AIR_ATTACK);
                     BackGroundM.volume = 0.0f;
-                    AfterFiringMusic.Play();
                 }
                 Invoke("AttackComplete", attackDelay);
             }
