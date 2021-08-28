@@ -331,7 +331,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &462350323
 PrefabInstance:
@@ -386,7 +386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4071555852718324106, guid: f036f97a288c2354d88115623ac518c8, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4071555852718324106, guid: f036f97a288c2354d88115623ac518c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1194,7 +1194,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &960026121
 GameObject:
@@ -1452,7 +1452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4071555852718324106, guid: f036f97a288c2354d88115623ac518c8, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4071555852718324106, guid: f036f97a288c2354d88115623ac518c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1631,7 +1631,7 @@ Transform:
   - {fileID: 2035898710}
   - {fileID: 2007364592}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1328841473
 MonoBehaviour:
@@ -2357,7 +2357,7 @@ Animator:
   m_GameObject: {fileID: 1769112959}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7b7e8571ef9af1a4aba4c937e0d32714, type: 2}
+  m_Controller: {fileID: 9100000, guid: 12c2f2b912e3aa642b602223d4674f8d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2861,7 +2861,7 @@ Transform:
   - {fileID: 2520192961666561521}
   - {fileID: 5699907827201767208}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2385274026236361594 stripped
 GameObject:
@@ -3047,7 +3047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4071555852718324106, guid: f036f97a288c2354d88115623ac518c8, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4071555852718324106, guid: f036f97a288c2354d88115623ac518c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3165,13 +3165,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4779969218782154783}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 38.78, y: 5.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2757954942467472434}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4779969218782154782
 MonoBehaviour:
@@ -3265,7 +3265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8268949328386140129, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8268949328386140129, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3416,8 +3416,8 @@ GameObject:
   - component: {fileID: 7156200820718716420}
   - component: {fileID: 7156200820718716421}
   - component: {fileID: 7156200820718716474}
-  - component: {fileID: 7156200820718716475}
   - component: {fileID: 7156200820718716473}
+  - component: {fileID: 7156200820718716475}
   m_Layer: 0
   m_Name: EnemyBee
   m_TagString: Untagged
@@ -3435,7 +3435,7 @@ Animator:
   m_GameObject: {fileID: 7156200820718716472}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a0686a51f46d0084b84743e3ec4b8236, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1bc0a4cc9046e9c4db82c2d222f7fa79, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3504,18 +3504,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7156200820718716472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 946fef28e964d994981e845dae72cd43, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bb0e72c349c2d047b1dd1ee7dda6332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBtwAttack: 5
+  timeBtwAttack: 3
   startTimeBtwAttack: 2
-  attackPos: {fileID: 7156200819938187887}
+  attackPos: {fileID: 0}
   whatIsEnemies:
     serializedVersion: 2
-    m_Bits: 512
-  attackRange: 1
-  health: 2
-  damage: 1
+    m_Bits: 0
+  attackRange: 3
+  health: 4
+  damage: 2
 --- !u!1839735485 &7714652639510305249
 Tilemap:
   m_ObjectHideFlags: 0

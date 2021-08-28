@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CommonEnemy : MonoBehaviour
+public class EnemyBee : MonoBehaviour
 {
     [SerializeField]
     private float timeBtwAttack;
@@ -15,9 +15,10 @@ public class CommonEnemy : MonoBehaviour
     public int health = 4;
     public int damage = 1;
     int Count;
-    const string ENEMY_IDLERUN = "Turtle_Idle-Run";
-    const string ENEMY_DEATH = "Turtle_Explode";
-    const string ENEMY_TAKEDAMAGE = "Turtle_TakeDamage";
+    const string ENEMY_IDLE = "Bee_Movement";
+    const string ENEMY_TAKEDAMAGE = "Bee_TakeDamage";
+    const string ENEMY_DEATH = "Bee_Explode";
+    const string ENEMY_ATTACK = "Bee_Attacking";
     /*
     public void TakeDamage (int damage)
     {

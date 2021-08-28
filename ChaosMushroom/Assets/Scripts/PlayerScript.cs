@@ -44,6 +44,7 @@ public class PlayerScript : MonoBehaviour
     const string PLAYER_JUMP = "Player_Jump_Gun";
     const string PLAYER_ATTACK = "Player_Movement_Firing";
     const string PLAYER_AIR_ATTACK = "Player_Jump_Firing";
+    const string PLAYER_DEATH = "Player_Death";
 
     //=====================================================
     // Start is called before the first frame update
