@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class CommonEnemy : MonoBehaviour
 {
-    private float timeBtwAttack = 2f;
+    [SerializeField]
+    private float timeBtwAttack;
+    [SerializeField]
     public float startTimeBtwAttack;
     
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRange;
     public int health = 4;
-    public int damage;
+    public int damage = 1;
     int Count;
     //public GameObject deathEffect;
     /*
@@ -37,7 +39,7 @@ public class CommonEnemy : MonoBehaviour
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
-                enemiesInRange[i].GetComponent<PlayerScript>().Playerhealth -= damage;
+                enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
                 Debug.Log("damage given");
             }
         }

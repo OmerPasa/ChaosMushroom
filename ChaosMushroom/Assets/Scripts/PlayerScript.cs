@@ -166,6 +166,12 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }
+    public void PlayerTakeDamage(int damage)
+    {
+        Playerhealth -= damage;
+        Debug.Log("damageTaken");
+        //play Player taken damage
+    }
     void AttackComplete()
     {
         BackGroundM.volume = 1f;
