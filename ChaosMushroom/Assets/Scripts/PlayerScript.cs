@@ -30,7 +30,7 @@ public class PlayerScript : MonoBehaviour
     private bool isAttacking;
     AudioSource AfterFiringMusic;
     public AudioSource BackGroundM;
-    public bool isFacingLeft;
+    public bool isFacingLeft = false;
     public Transform firePoint;
     public GameObject BulletPre;
 

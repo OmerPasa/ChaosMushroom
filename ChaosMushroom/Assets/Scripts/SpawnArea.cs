@@ -10,26 +10,37 @@ public class SpawnArea : MonoBehaviour
     public Transform EnemySpawner;
     int xPos;
     int yPos;
-    public int Maxcount;
+    [SerializeField]
+    private int Maxcount;
     [SerializeField]
      private int Count;
-
-    private void OnCollisionEnter2D(Collision2D collision)
+     
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("triggered!!!!");
+    if(other.gameObject.tag == "Player")
     {
         if (collusionhappened)
         {
             return;   
         }else
         {
-        xPos = (int)EnemySpawner.position.x;
-        yPos = (int)EnemySpawner.position.y;
+        xPos = (int)transform.position.x;
+        yPos = (int)transform.position.y;
         StartCoroutine(EnemyDrop());
         collusionhappened = true;      
         }
           
     }
+    }
     IEnumerator EnemyDrop()
    {
+       for (Count = 0; Count < Maxcount; Count++)
+       {
+           Instantiate(Trutle,new Vector3(xPos,yPos,0f),Quaternion.identity);
+           yield return new WaitForSeconds(0.1f);
+       }
+       /*
        if (Count == Maxcount)
         {
             yield return null;
@@ -37,7 +48,8 @@ public class SpawnArea : MonoBehaviour
         {
             Instantiate(Trutle,new Vector3(xPos,yPos,0f),Quaternion.identity);
             yield return new WaitForSeconds(0.1f);
-            Count += 1;
         }
+
+        */
     }
 }
