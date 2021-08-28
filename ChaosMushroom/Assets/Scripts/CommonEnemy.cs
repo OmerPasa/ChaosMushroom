@@ -15,7 +15,6 @@ public class CommonEnemy : MonoBehaviour
     public int health = 4;
     public int damage = 1;
     int Count;
-    //public GameObject deathEffect;
     /*
     public void TakeDamage (int damage)
     {
@@ -35,7 +34,6 @@ public class CommonEnemy : MonoBehaviour
         {
         if (enemiesInRange.Length >= 1)
         {
-            //Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
