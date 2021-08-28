@@ -6,24 +6,23 @@ using System.Timers;
 public class SpawnArea : MonoBehaviour
 {
     public GameObject Trutle;
-    public Transform 
-    Vector3 EnemySpawner = transform.position;
-    
-
-    public int xPos;
-    public int yPos;
+    public Transform EnemySpawner;
+    int xPos;
+    int yPos;
     public int Maxcount;
     [SerializeField] private int Count;
 
     void Start ()
     {
-        Vector3 EnemySpawner = transform.position;
-        Vector3 SpawnAreaPos = transform.position;
         //SpawnAreaPos = SpawnArea.transform.position;
+        xPos = (int)EnemySpawner.position.x;
+        yPos = (int)EnemySpawner.position.y;
         StartCoroutine(EnemyDrop());
-        xPos = (int)Random.Range(16f,30f);
-        yPos = (int)Random.Range(-1f,1f);
+        //xPos = (int)Random.Range(16f,30f);
+        //yPos = (int)Random.Range(-1f,1f);
+        //Transform EnemySpawner = Vector3(xPos, yPos, 0);
     }
+
     IEnumerator EnemyDrop()
    {
        while (Count < Maxcount)
