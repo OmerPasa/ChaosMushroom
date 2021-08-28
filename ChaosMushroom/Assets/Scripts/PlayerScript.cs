@@ -36,6 +36,7 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     private float attackDelay = 0.3f;
+    public int Playerhealth = 5;
 
     //Animation States
     const string PLAYER_IDLE = "Player_Idle_Gun";
@@ -62,6 +63,10 @@ public class PlayerScript : MonoBehaviour
     //=====================================================
     void Update()
     {
+        if (Playerhealth <= 0)
+        {
+        Destroy(gameObject);
+        }
         //Checking for inputs
         xAxis = Input.GetAxisRaw("Horizontal");
         
