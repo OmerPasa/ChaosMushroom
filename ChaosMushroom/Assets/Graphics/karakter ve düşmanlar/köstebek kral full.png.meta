@@ -1,12 +1,96 @@
 fileFormatVersion: 2
 guid: cda210679882a4449b550f138e0aa94a
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2211253925598299892
+    second: Mole_Explode5
+  - first:
+      213: -1374894981055340385
+    second: Mole_Explode4
+  - first:
+      213: 6139574891801988514
+    second: Mole_Idle
+  - first:
+      213: 5793767884828451269
+    second: Mole_Walk
+  - first:
+      213: -7898029998753237623
+    second: Mole_Idle1
+  - first:
+      213: 5782387825832765048
+    second: Mole_Movement1
+  - first:
+      213: -5022368050569109474
+    second: Mole_Idle2
+  - first:
+      213: -8426162499591012529
+    second: Mole_Movement2
+  - first:
+      213: -5304859105097951277
+    second: Mole_Movement3
+  - first:
+      213: -8122345547703931313
+    second: Mole_Attack
+  - first:
+      213: 5640253730931683563
+    second: Mole_Attack1
+  - first:
+      213: -616117272289590384
+    second: Mole_Attack2
+  - first:
+      213: -8039540414293037580
+    second: Mole_Attack3
+  - first:
+      213: -1509766208358161769
+    second: Mole_Attack4
+  - first:
+      213: 5693146430989498026
+    second: Mole_Attack5
+  - first:
+      213: 5826757542314849859
+    second: Mole_Explode
+  - first:
+      213: -8712598301654469
+    second: Mole_Jump
+  - first:
+      213: -4145948844670926737
+    second: Mole_Explode1
+  - first:
+      213: -8741133451731263220
+    second: Mole_Jump1
+  - first:
+      213: 2092981144177723885
+    second: Mole_Explode2
+  - first:
+      213: 4433345433322646943
+    second: Mole_Jump2
+  - first:
+      213: -5700580689311285700
+    second: Mole_Explode3
+  - first:
+      213: 9073871568258153791
+    second: Mole_JumpAttack
+  - first:
+      213: -8369604784341155277
+    second: Mole_JmpAttack1
+  - first:
+      213: -6510747176959387410
+    second: Mole_JumpAttack2
+  - first:
+      213: 4095503692027454622
+    second: Mole_TakeDamage
+  - first:
+      213: -4606664375570148461
+    second: "k\xF6stebek kral full_26"
+  - first:
+      213: -4214339833424524791
+    second: "k\xF6stebek kral full_27"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -32,27 +116,27 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: 2
     mipBias: -100
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -66,7 +150,7 @@ TextureImporter:
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -78,7 +162,7 @@ TextureImporter:
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,11 +207,557 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Mole_Explode5
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 195
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c097688354c0051e0800000000000000
+      internalID: -2211253925598299892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Explode4
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 23
+        width: 54
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f90aaba9c446bece0800000000000000
+      internalID: -1374894981055340385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Idle
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 217
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2adc3c1d5d6243550800000000000000
+      internalID: 6139574891801988514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Walk
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 171
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1244ec139976050800000000000000
+      internalID: 5793767884828451269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Idle1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 218
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9853feacf8f846290800000000000000
+      internalID: -7898029998753237623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Movement1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 170
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8762e48571b2f3050800000000000000
+      internalID: 5782387825832765048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Idle2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 218
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e10ae8e1ed6fc4ab0800000000000000
+      internalID: -5022368050569109474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Movement2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 170
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4ff820b9d1401b80800000000000000
+      internalID: -8426162499591012529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Movement3
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 169
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d7d32110ca5166b0800000000000000
+      internalID: -5304859105097951277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Attack
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 126
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4ea12622c1a74f80800000000000000
+      internalID: -8122345547703931313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Attack1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 127
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0314b82e4364e40800000000000000
+      internalID: 5640253730931683563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Attack2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 127
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 093423dea9c1377f0800000000000000
+      internalID: -616117272289590384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Attack3
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 127
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fdaaa8a690dd6090800000000000000
+      internalID: -8039540414293037580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Attack4
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 128
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7926ce0f1ab3c0be0800000000000000
+      internalID: -1509766208358161769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Attack5
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 128
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa67961f38e120f40800000000000000
+      internalID: 5693146430989498026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Explode
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 34
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346310efc1dccd050800000000000000
+      internalID: 5826757542314849859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Jump
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 81
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b32c82120fb01eff0800000000000000
+      internalID: -8712598301654469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Explode1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 35
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f60c270fd71a676c0800000000000000
+      internalID: -4145948844670926737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Jump1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 81
+        width: 33
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c01264b207141b680800000000000000
+      internalID: -8741133451731263220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Explode2
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 35
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de9cd44f243cb0d10800000000000000
+      internalID: 2092981144177723885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Jump2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 81
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9debc7ce28668d30800000000000000
+      internalID: 4433345433322646943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Explode3
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 27
+        width: 43
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e3628e01873e0b0800000000000000
+      internalID: -5700580689311285700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_JumpAttack
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 82
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3d3b8bad1edced70800000000000000
+      internalID: 9073871568258153791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_JmpAttack1
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 82
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3328feeeac039db80800000000000000
+      internalID: -8369604784341155277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_JumpAttack2
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 81
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee855fe10fd25a5a0800000000000000
+      internalID: -6510747176959387410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_TakeDamage
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 218
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94e893b8e626d830800000000000000
+      internalID: 4095503692027454622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 870d47c7edb6c53408e3f8e61a8283b6
     internalID: 0
     vertices: []
     indices: 
