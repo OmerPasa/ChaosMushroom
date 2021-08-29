@@ -67,14 +67,10 @@ public class PlayerScript : MonoBehaviour
         {
             isntDead = false;
             ChangeAnimationState(PLAYER_DEATH);
-            if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-            {  //If normalizedTime is 0 to 1 means animation is playing, if greater than 1 means finished
-            Debug.Log("not playing");
-            Destroy(gameObject); 
-            }else
-            { 
-            Debug.Log("playing");
-            }
+            Invoke("Die", 2f);
+            
+            
+
             
         }
         //Checking for inputs
@@ -177,12 +173,17 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
     public void PlayerTakeDamage(int damage)
     {
         Playerhealth -= damage;
         TakingDamage = true;
         Debug.Log("damageTaken");
         ChangeAnimationState(PLAYER_TAKEDAMAGE);
+        TakingDamage = false;
 
         //play Player taken damage
     }

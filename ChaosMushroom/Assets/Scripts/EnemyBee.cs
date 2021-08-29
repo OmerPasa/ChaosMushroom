@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyBee : MonoBehaviour
 {
     [SerializeField]
+    private GameObject EnemyBeeAuto;
+    [SerializeField]
     private float timeBtwAttack;
     [SerializeField]
     public float startTimeBtwAttack;
@@ -14,6 +16,7 @@ public class EnemyBee : MonoBehaviour
     public float attackRange;
     public int health = 4;
     public int damage = 1;
+
     int Count;
     const string ENEMY_IDLE = "Bee_Movement";
     const string ENEMY_TAKEDAMAGE = "Bee_TakeDamage";
@@ -21,13 +24,20 @@ public class EnemyBee : MonoBehaviour
     const string ENEMY_ATTACK = "Bee_Attacking";
     private Animator animator;
     private string currentAnimaton;
+    private bool isAttacking;
+    private bool isTakingDamage;
+    
+    private bool isDying;
     private void Start() {
         animator = GetComponent<Animator>();
     }
     void Update() 
     {
+        if (!isAttacking && !isTakingDamage && !isDying)
+        {
         ChangeAnimationState(ENEMY_IDLE);
-    Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+        }
+        Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
         if (timeBtwAttack <= 0)
         {
@@ -36,9 +46,11 @@ public class EnemyBee : MonoBehaviour
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
+                isAttacking = true;
                 ChangeAnimationState(ENEMY_ATTACK);
                 enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
                 Debug.Log("damage given");
+                isAttacking = false;
             }
         }
         timeBtwAttack = startTimeBtwAttack;
@@ -60,15 +72,23 @@ public class EnemyBee : MonoBehaviour
     {
       if(collision.CompareTag("Bullet"))
     {
+        isTakingDamage = true;
         Destroy(collision.gameObject);
         ChangeAnimationState(ENEMY_TAKEDAMAGE);
         health--;
+        isTakingDamage = false;
     }
-     if (health <= 0)
+     if (health <= 3)
         {
+            isDying = true;
             ChangeAnimationState(ENEMY_DEATH);
-            Destroy(gameObject);
+            Invoke("Die",0.9f);
+            
         }
+    }
+    void Die()
+    {
+        Destroy(EnemyBeeAuto);
     }
     void ChangeAnimationState(string newAnimation)
     {
