@@ -16,7 +16,7 @@ public class PlayerScript : MonoBehaviour
     public Transform groundCheck;
 
     private Animator animator;
-
+    private string currentAnimaton;
     private float xAxis;
     private float yAxis;
     private Rigidbody2D rb2d;
@@ -25,9 +25,10 @@ public class PlayerScript : MonoBehaviour
     private float jumpForce = 850;
     private int groundMask;
     private bool isGrounded;
-    private string currentAnimaton;
     private bool isAttackPressed;
     private bool isAttacking;
+    private bool isntDead;
+    private bool TakingDamage;
     AudioSource AfterFiringMusic;
     public AudioSource BackGroundM;
     public bool isFacingLeft = false;
@@ -36,7 +37,7 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     private float attackDelay = 0.3f;
-    public int Playerhealth = 5;
+    public int Playerhealth;
 
     //Animation States
     const string PLAYER_IDLE = "Player_Idle_Gun";
@@ -45,12 +46,14 @@ public class PlayerScript : MonoBehaviour
     const string PLAYER_ATTACK = "Player_Movement_Firing";
     const string PLAYER_AIR_ATTACK = "Player_Jump_Firing";
     const string PLAYER_DEATH = "Player_Death";
+    const string PLAYER_TAKEDAMAGE = "Player_TakeDamage";
 
     //=====================================================
     // Start is called before the first frame update
     //=====================================================
     void Start()
     {
+        isntDead = true;
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         AfterFiringMusic = GetComponent<AudioSource>();
@@ -58,15 +61,21 @@ public class PlayerScript : MonoBehaviour
         BulletScriptt BulletScript = GameObject.Find("BulletPrefab").GetComponent<BulletScriptt>();
        
     }
-
-    //=====================================================
-    // Update is called once per frame
-    //=====================================================
     void Update()
-    {
+    {   
         if (Playerhealth <= 0)
         {
-        Destroy(gameObject);
+            isntDead = false;
+            ChangeAnimationState(PLAYER_DEATH);
+            if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            {  //If normalizedTime is 0 to 1 means animation is playing, if greater than 1 means finished
+            Debug.Log("not playing");
+            Destroy(gameObject); 
+            }else
+            { 
+            Debug.Log("playing");
+            }
+            
         }
         //Checking for inputs
         xAxis = Input.GetAxisRaw("Horizontal");
@@ -114,6 +123,7 @@ public class PlayerScript : MonoBehaviour
         if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
         {
             isGrounded = true;
+            Debug.Log("isGROUNDED");
         }
         else
         {
@@ -122,7 +132,7 @@ public class PlayerScript : MonoBehaviour
 
         //------------------------------------------
         
-        if (isGrounded && !isAttacking)
+        if (isGrounded && !isAttacking && isntDead && !TakingDamage)
         {
             if (xAxis != 0)
             {
@@ -170,7 +180,10 @@ public class PlayerScript : MonoBehaviour
     public void PlayerTakeDamage(int damage)
     {
         Playerhealth -= damage;
+        TakingDamage = true;
         Debug.Log("damageTaken");
+        ChangeAnimationState(PLAYER_TAKEDAMAGE);
+
         //play Player taken damage
     }
     void AttackComplete()

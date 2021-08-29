@@ -19,19 +19,14 @@ public class EnemyBee : MonoBehaviour
     const string ENEMY_TAKEDAMAGE = "Bee_TakeDamage";
     const string ENEMY_DEATH = "Bee_Explode";
     const string ENEMY_ATTACK = "Bee_Attacking";
-    /*
-    public void TakeDamage (int damage)
-    {
-        health -= damage;
-        if (health <=0)
-        {
-            Destroy(gameObject);
-        }
-
+    private Animator animator;
+    private string currentAnimaton;
+    private void Start() {
+        animator = GetComponent<Animator>();
     }
-    */
     void Update() 
     {
+        ChangeAnimationState(ENEMY_IDLE);
     Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
         if (timeBtwAttack <= 0)
@@ -41,6 +36,7 @@ public class EnemyBee : MonoBehaviour
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
+                ChangeAnimationState(ENEMY_ATTACK);
                 enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
                 Debug.Log("damage given");
             }
@@ -65,11 +61,21 @@ public class EnemyBee : MonoBehaviour
       if(collision.CompareTag("Bullet"))
     {
         Destroy(collision.gameObject);
+        ChangeAnimationState(ENEMY_TAKEDAMAGE);
         health--;
     }
      if (health <= 0)
         {
-        Destroy(gameObject);
+            ChangeAnimationState(ENEMY_DEATH);
+            Destroy(gameObject);
         }
     }
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimaton == newAnimation) return;
+
+        animator.Play(newAnimation);
+        currentAnimaton = newAnimation;
+    }
 }
+
