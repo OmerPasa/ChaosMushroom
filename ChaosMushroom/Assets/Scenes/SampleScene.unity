@@ -3367,6 +3367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e37990a840f07b4c8d69cc27452bfc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyBeeAuto: {fileID: 4779969218782154783}
   timeBtwAttack: 6
   startTimeBtwAttack: 3
   attackPos: {fileID: 7156200819938187887}
