@@ -78,7 +78,7 @@ public class EnemyBee : MonoBehaviour
         health--;
         isTakingDamage = false;
     }
-     if (health <= 3)
+     if (health <= 0)
         {
             isDying = true;
             ChangeAnimationState(ENEMY_DEATH);

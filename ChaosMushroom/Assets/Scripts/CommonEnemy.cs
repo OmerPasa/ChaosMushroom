@@ -5,6 +5,8 @@ using UnityEngine;
 public class CommonEnemy : MonoBehaviour
 {
     [SerializeField]
+    private GameObject EnemyTurtleAuto;
+    [SerializeField]
     private float timeBtwAttack;
     [SerializeField]
     public float startTimeBtwAttack;
@@ -18,15 +20,22 @@ public class CommonEnemy : MonoBehaviour
     const string ENEMY_IDLERUN = "Turtle_Idle-Run";
     const string ENEMY_DEATH = "Turtle_Explode";
     const string ENEMY_TAKEDAMAGE = "Turtle_TakeDamage";
-    private Animator animator;
+        private Animator animator;
     private string currentAnimaton;
+    private bool isAttacking;
+    private bool isTakingDamage;
+    
+    private bool isDying;
     private void Start() {
         animator = GetComponent<Animator>();
     }
     void Update() 
     {
+        if (!isAttacking && !isTakingDamage && !isDying)
+        {
         ChangeAnimationState(ENEMY_IDLERUN);
-    Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+        }
+        Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
         if (timeBtwAttack <= 0)
         {
@@ -35,8 +44,10 @@ public class CommonEnemy : MonoBehaviour
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
+                isAttacking = true;
                 enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
                 Debug.Log("damage given");
+                isAttacking = false;
             }
         }
         timeBtwAttack = startTimeBtwAttack;
@@ -58,15 +69,23 @@ public class CommonEnemy : MonoBehaviour
     {
       if(collision.CompareTag("Bullet"))
     {
+        isTakingDamage = true;
         Destroy(collision.gameObject);
         ChangeAnimationState(ENEMY_TAKEDAMAGE);
         health--;
+        isTakingDamage = false;
     }
      if (health <= 0)
         {
+            isDying = true;
             ChangeAnimationState(ENEMY_DEATH);
-            Destroy(gameObject);
+            Invoke("Die",1f);
+            
         }
+    }
+    void Die()
+    {
+        Destroy(EnemyTurtleAuto);
     }
     void ChangeAnimationState(string newAnimation)
     {
