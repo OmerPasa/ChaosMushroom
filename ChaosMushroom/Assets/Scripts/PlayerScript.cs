@@ -10,13 +10,13 @@ using System;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField]
-    private float walkSpeed = 5f;
+    private float runSpeed = 5f;
 
     [SerializeField]
-    Transform groundCheck;
+    public Transform groundCheck;
 
     private Animator animator;
-
+    private string currentAnimaton;
     private float xAxis;
     private float yAxis;
     private Rigidbody2D rb2d;
@@ -25,14 +25,19 @@ public class PlayerScript : MonoBehaviour
     private float jumpForce = 850;
     private int groundMask;
     private bool isGrounded;
-    private string currentAnimaton;
     private bool isAttackPressed;
     private bool isAttacking;
-    AudioSource m_MyAudioSource;
+    private bool isntDead;
+    private bool TakingDamage;
+    AudioSource AfterFiringMusic;
     public AudioSource BackGroundM;
+    public bool isFacingLeft = false;
+    public Transform firePoint;
+    public GameObject BulletPre;
 
     [SerializeField]
     private float attackDelay = 0.3f;
+    public int Playerhealth;
 
     //Animation States
     const string PLAYER_IDLE = "Player_Idle_Gun";
@@ -40,29 +45,56 @@ public class PlayerScript : MonoBehaviour
     const string PLAYER_JUMP = "Player_Jump_Gun";
     const string PLAYER_ATTACK = "Player_Movement_Firing";
     const string PLAYER_AIR_ATTACK = "Player_Jump_Firing";
+    const string PLAYER_DEATH = "Player_Death";
+    const string PLAYER_TAKEDAMAGE = "Player_TakeDamage";
 
     //=====================================================
     // Start is called before the first frame update
     //=====================================================
     void Start()
     {
+        isntDead = true;
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        m_MyAudioSource = GetComponent<AudioSource>();
+        AfterFiringMusic = GetComponent<AudioSource>();
         AudioSource BackGroundM = GameObject.Find("BackGroundMusic").GetComponent<AudioSource>();
-       // volumeBack volumeBack = gameObject.GetComponent<float>();
-       // groundMask = 1 << LayerMask.NameToLayer("Ground");
-
+        BulletScriptt BulletScript = GameObject.Find("BulletPrefab").GetComponent<BulletScriptt>();
+       
     }
-
-    //=====================================================
-    // Update is called once per frame
-    //=====================================================
     void Update()
-    {
+    {   
+        if (Playerhealth <= 0)
+        {
+            isntDead = false;
+            ChangeAnimationState(PLAYER_DEATH);
+            Invoke("Die", 2f);
+            
+            
+
+            
+        }
         //Checking for inputs
         xAxis = Input.GetAxisRaw("Horizontal");
+        
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            rb2d.velocity = new Vector2(runSpeed, rb2d.velocity.y);
 
+            transform.localScale = new Vector3(1, 1, 1);
+            isFacingLeft = false;
+        }
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            rb2d.velocity = new Vector2(-runSpeed, rb2d.velocity.y);
+
+            transform.localScale = new Vector3(-1, 1, 1);
+            isFacingLeft = true;
+        }else if (isGrounded)
+        {
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+        }
+        
+        
         //space jump key pressed?
         if (Input.GetKeyDown(KeyCode.Space))
         { 
@@ -70,8 +102,11 @@ public class PlayerScript : MonoBehaviour
         }
 
         //space Atatck key pressed?
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKey(KeyCode.LeftControl))
         {
+            GameObject B = Instantiate(BulletPre,firePoint.position,firePoint.rotation);
+            B.GetComponent<BulletScriptt>().StartShooting(isFacingLeft);
+            AfterFiringMusic.Play();
             isAttackPressed = true;
         }
     }
@@ -81,21 +116,10 @@ public class PlayerScript : MonoBehaviour
     //=====================================================
     private void FixedUpdate()
     {
-        //check if player is on the ground
-        /*RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundMask);
-
-        if (hit.collider != null)
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-            Console.WriteLine(false);
-        }*/
         if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
         {
             isGrounded = true;
+            Debug.Log("isGROUNDED");
         }
         else
         {
@@ -103,28 +127,8 @@ public class PlayerScript : MonoBehaviour
         }
 
         //------------------------------------------
-
-        //Check update movement based on input
-        Vector2 vel = new Vector2(0, rb2d.velocity.y);
-
-        if (xAxis < 0)
-        {
-            vel.x = -walkSpeed;
-            transform.localScale = new Vector2(-1, 1);
-        }
-        else if (xAxis > 0)
-        {
-            vel.x = walkSpeed;
-            transform.localScale = new Vector2(1, 1);
-            
-        }
-        else
-        {
-            vel.x = 0;
-            
-        }
-
-        if (isGrounded && !isAttacking)
+        
+        if (isGrounded && !isAttacking && isntDead && !TakingDamage)
         {
             if (xAxis != 0)
             {
@@ -136,7 +140,6 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        //------------------------------------------
 
         //Check if trying to jump 
         if (isJumpPressed && isGrounded)
@@ -145,9 +148,6 @@ public class PlayerScript : MonoBehaviour
             isJumpPressed = false;
             ChangeAnimationState(PLAYER_JUMP);
         }
-
-        //assign the new velocity to the rigidbody
-        rb2d.velocity = vel;
 
         //attack
         if (isAttackPressed)
@@ -161,25 +161,36 @@ public class PlayerScript : MonoBehaviour
                 if(isGrounded)
                 {
                     ChangeAnimationState(PLAYER_ATTACK);
-                    m_MyAudioSource.Play();
-                    BackGroundM.volume = 0.1f;
-
+                    BackGroundM.volume = 0.0f;
+                    AfterFiringMusic.Play();
                 }
                 else
                 {
                     ChangeAnimationState(PLAYER_AIR_ATTACK);
-                    m_MyAudioSource.Play();
-                    BackGroundM.volume = 0.1f;
+                    BackGroundM.volume = 0.0f;
                 }
                 Invoke("AttackComplete", attackDelay);
             }
         }
     }
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
+    public void PlayerTakeDamage(int damage)
+    {
+        Playerhealth -= damage;
+        TakingDamage = true;
+        Debug.Log("damageTaken");
+        ChangeAnimationState(PLAYER_TAKEDAMAGE);
+        TakingDamage = false;
+
+        //play Player taken damage
+    }
     void AttackComplete()
     {
+        BackGroundM.volume = 1f;
         isAttacking = false;
-        m_MyAudioSource.Stop();
-        BackGroundM.volume = 0.4f;
     }
 
     //=====================================================

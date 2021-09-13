@@ -1,6 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System;
 using Pathfinding;
 
 public class EnemyController : MonoBehaviour
@@ -24,10 +29,17 @@ public class EnemyController : MonoBehaviour
         InvokeRepeating("UpdatePath", 0f, .5f);
     }void UpdatePath()
     {
-        if (seeker.IsDone())
+        if (seeker != null)
+        {
+            if (seeker.IsDone())
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
+        }   
+        }else
+        {
+            Console.WriteLine("nullseeker");
         }
+        
     }
     void OnPathComplete(Path p)
     {
