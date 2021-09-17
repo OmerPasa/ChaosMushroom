@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +26,7 @@ public class EnemyBee : MonoBehaviour
     private string currentAnimaton;
     private bool isAttacking;
     private bool isTakingDamage;
+    
     private bool isDying;
     private void Start() {
         animator = GetComponent<Animator>();
