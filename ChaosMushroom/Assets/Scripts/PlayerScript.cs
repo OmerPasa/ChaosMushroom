@@ -68,10 +68,6 @@ public class PlayerScript : MonoBehaviour
             isntDead = false;
             ChangeAnimationState(PLAYER_DEATH);
             Invoke("Die", 2f);
-            
-            
-
-            
         }
         //Checking for inputs
         xAxis = Input.GetAxisRaw("Horizontal");

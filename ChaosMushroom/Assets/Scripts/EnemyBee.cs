@@ -37,11 +37,12 @@ public class EnemyBee : MonoBehaviour
         {
         ChangeAnimationState(ENEMY_IDLE);
         }
+        
         Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
         if (timeBtwAttack <= 0)
         {
-        if (enemiesInRange.Length >= 1)
+        if (enemiesInRange.Length >= 4)
         {
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
@@ -77,13 +78,15 @@ public class EnemyBee : MonoBehaviour
         ChangeAnimationState(ENEMY_TAKEDAMAGE);
         health--;
         isTakingDamage = false;
+        ChangeAnimationState(ENEMY_IDLE);
+        Debug.Log("EnemyIdle");
     }
      if (health <= 0)
         {
             isDying = true;
             ChangeAnimationState(ENEMY_DEATH);
+            Debug.Log("BEE_DIED");
             Invoke("Die",0.9f);
-            
         }
     }
     void Die()
