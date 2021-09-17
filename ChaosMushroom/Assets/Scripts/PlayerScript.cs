@@ -53,13 +53,13 @@ public class PlayerScript : MonoBehaviour
     //=====================================================
     void Start()
     {
+        GetComponent<Animation>()["Player_Movement_Firing"].wrapMode = WrapMode.Once;
         isntDead = true;
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         AfterFiringMusic = GetComponent<AudioSource>();
         AudioSource BackGroundM = GameObject.Find("BackGroundMusic").GetComponent<AudioSource>();
         BulletScriptt BulletScript = GameObject.Find("BulletPrefab").GetComponent<BulletScriptt>();
-       
     }
     void Update()
     {   
@@ -68,10 +68,6 @@ public class PlayerScript : MonoBehaviour
             isntDead = false;
             ChangeAnimationState(PLAYER_DEATH);
             Invoke("Die", 2f);
-            
-            
-
-            
         }
         //Checking for inputs
         xAxis = Input.GetAxisRaw("Horizontal");
@@ -160,6 +156,7 @@ public class PlayerScript : MonoBehaviour
 
                 if(isGrounded)
                 {
+                    //animator["PLAYER_ATTACK"].wrapMode = WrapMode.Once;
                     ChangeAnimationState(PLAYER_ATTACK);
                     BackGroundM.volume = 0.0f;
                     AfterFiringMusic.Play();
