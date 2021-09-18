@@ -37,6 +37,7 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     private float attackDelay = 0.3f;
+    private float damageDelay;
     public int Playerhealth;
 
     //Animation States
@@ -169,24 +170,28 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }
+    void AttackComplete()
+    {
+        BackGroundM.volume = 1f;
+        isAttacking = false;
+    }
     public void Die()
     {
         Destroy(gameObject);
     }
     public void PlayerTakeDamage(int damage)
     {
-        Playerhealth -= damage;
         TakingDamage = true;
+        Playerhealth -= damage;
         Debug.Log("damageTaken");
         ChangeAnimationState(PLAYER_TAKEDAMAGE);
-        TakingDamage = false;
-
-        //play Player taken damage
+        Debug.Log("ANİMATİON CHANGED TO TAKEDAMAGE!!!!!!!!");
+        damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
+        Invoke("DamageDelayComplete", damageDelay);
     }
-    void AttackComplete()
+    void DamageDelayComplete()
     {
-        BackGroundM.volume = 1f;
-        isAttacking = false;
+        TakingDamage = false;
     }
 
     //=====================================================

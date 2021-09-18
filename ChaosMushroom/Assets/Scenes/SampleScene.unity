@@ -2837,13 +2837,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2074041977502190794, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074041977502190794, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074041977502190794, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074041977502190794, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074041977502190797, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: EnemyTurtleAuto
+      value: 
+      objectReference: {fileID: 2385274026236361594}
     - target: {fileID: 4454702310257226289, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4454702310257226289, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37.32
+      value: 45.37
       objectReference: {fileID: 0}
     - target: {fileID: 4454702310257226289, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2880,6 +2900,30 @@ PrefabInstance:
     - target: {fileID: 4454702310257226289, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454702310257226291, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: gravity.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454702310257226291, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: gravity.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454702310257226291, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: gravity.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454702310257226291, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: repathRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454702310257226291, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: alwaysDrawGizmos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454702310257226291, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 4454702310257226292, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: target
@@ -3283,6 +3327,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 721362548800386903, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
+      propertyPath: repathRate
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3105506255738233205, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
@@ -3377,9 +3425,9 @@ MonoBehaviour:
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 512
-  attackRange: 1.61
+  attackRange: 2
   health: 6
-  damage: 2
+  damage: 3
 --- !u!1839735485 &7714652639510305249
 Tilemap:
   m_ObjectHideFlags: 0

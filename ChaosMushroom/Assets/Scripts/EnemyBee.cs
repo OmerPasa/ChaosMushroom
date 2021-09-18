@@ -15,7 +15,7 @@ public class EnemyBee : MonoBehaviour
     public LayerMask whatIsEnemies;
     public float attackRange;
     public int health = 4;
-    public int damage = 1;
+    public int damage = 3;
 
     int Count;
     const string ENEMY_IDLE = "Bee_Movement";
@@ -42,7 +42,7 @@ public class EnemyBee : MonoBehaviour
 
         if (timeBtwAttack <= 0)
         {
-        if (enemiesInRange.Length >= 4)
+        if (enemiesInRange.Length >= 1)
         {
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
