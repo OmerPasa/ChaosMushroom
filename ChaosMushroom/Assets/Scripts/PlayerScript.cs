@@ -10,7 +10,7 @@ using System;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField]
-    private float runSpeed = 5f;
+    private float runSpeed;
 
     [SerializeField]
     public Transform groundCheck;
@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb2d;
     private bool isJumpPressed;
     [SerializeField]
-    private float jumpForce = 850;
+    private float jumpForce;
     private int groundMask;
     private bool isGrounded;
     private bool isAttackPressed;
@@ -36,7 +36,8 @@ public class PlayerScript : MonoBehaviour
     public GameObject BulletPre;
 
     [SerializeField]
-    private float attackDelay = 0.3f;
+    private float attackDelay;
+    private float damageDelay;
     public int Playerhealth;
 
     //Animation States
@@ -68,10 +69,6 @@ public class PlayerScript : MonoBehaviour
             isntDead = false;
             ChangeAnimationState(PLAYER_DEATH);
             Invoke("Die", 2f);
-            
-            
-
-            
         }
         //Checking for inputs
         xAxis = Input.GetAxisRaw("Horizontal");
@@ -104,9 +101,6 @@ public class PlayerScript : MonoBehaviour
         //space Atatck key pressed?
         if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKey(KeyCode.LeftControl))
         {
-            GameObject B = Instantiate(BulletPre,firePoint.position,firePoint.rotation);
-            B.GetComponent<BulletScriptt>().StartShooting(isFacingLeft);
-            AfterFiringMusic.Play();
             isAttackPressed = true;
         }
     }
@@ -157,21 +151,29 @@ public class PlayerScript : MonoBehaviour
             if (!isAttacking)
             {
                 isAttacking = true;
-
+                GameObject B = Instantiate(BulletPre,firePoint.position,firePoint.rotation);
+                B.GetComponent<BulletScriptt>().StartShooting(isFacingLeft);
+                AfterFiringMusic.Play();
                 if(isGrounded)
                 {
                     ChangeAnimationState(PLAYER_ATTACK);
-                    BackGroundM.volume = 0.0f;
+                    BackGroundM.volume = 0.4f;
                     AfterFiringMusic.Play();
                 }
                 else
                 {
                     ChangeAnimationState(PLAYER_AIR_ATTACK);
-                    BackGroundM.volume = 0.0f;
+                    BackGroundM.volume = 0.4f;
                 }
                 Invoke("AttackComplete", attackDelay);
             }
         }
+    }
+    void AttackComplete()
+    {
+        isAttacking = false;
+        BackGroundM.volume = 1f;
+        Debug.Log("ATTACKCOMPLETE");
     }
     public void Die()
     {
@@ -179,18 +181,17 @@ public class PlayerScript : MonoBehaviour
     }
     public void PlayerTakeDamage(int damage)
     {
-        Playerhealth -= damage;
         TakingDamage = true;
+        Playerhealth -= damage;
         Debug.Log("damageTaken");
         ChangeAnimationState(PLAYER_TAKEDAMAGE);
-        TakingDamage = false;
-
-        //play Player taken damage
+        Debug.Log("ANİMATİON CHANGED TO TAKEDAMAGE!!!!!!!!");
+        damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
+        Invoke("DamageDelayComplete", damageDelay);
     }
-    void AttackComplete()
+    void DamageDelayComplete()
     {
-        BackGroundM.volume = 1f;
-        isAttacking = false;
+        TakingDamage = false;
     }
 
     //=====================================================

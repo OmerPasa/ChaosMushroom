@@ -10,13 +10,12 @@ public class EnemyBee : MonoBehaviour
     private float timeBtwAttack;
     [SerializeField]
     public float startTimeBtwAttack;
-    
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRange;
+    private float damageDelay;
     public int health = 4;
-    public int damage = 1;
-
+    public int damage = 3;
     int Count;
     const string ENEMY_IDLE = "Bee_Movement";
     const string ENEMY_TAKEDAMAGE = "Bee_TakeDamage";
@@ -26,7 +25,6 @@ public class EnemyBee : MonoBehaviour
     private string currentAnimaton;
     private bool isAttacking;
     private bool isTakingDamage;
-    
     private bool isDying;
     private void Start() {
         animator = GetComponent<Animator>();
@@ -37,6 +35,7 @@ public class EnemyBee : MonoBehaviour
         {
         ChangeAnimationState(ENEMY_IDLE);
         }
+        
         Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
         if (timeBtwAttack <= 0)
@@ -76,15 +75,20 @@ public class EnemyBee : MonoBehaviour
         Destroy(collision.gameObject);
         ChangeAnimationState(ENEMY_TAKEDAMAGE);
         health--;
-        isTakingDamage = false;
+        damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
+        Invoke("DamageDelayComplete", damageDelay);
     }
      if (health <= 0)
         {
             isDying = true;
             ChangeAnimationState(ENEMY_DEATH);
+            Debug.Log("BEE_DIED");
             Invoke("Die",0.9f);
-            
         }
+    }
+    void DamageDelayComplete()
+    {
+        isTakingDamage = false;
     }
     void Die()
     {
