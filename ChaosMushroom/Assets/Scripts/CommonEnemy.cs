@@ -14,6 +14,7 @@ public class CommonEnemy : MonoBehaviour
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRange;
+    private float damageDelay;
     public int health = 4;
     public int damage = 1;
     int Count;
@@ -73,7 +74,8 @@ public class CommonEnemy : MonoBehaviour
         Destroy(collision.gameObject);
         ChangeAnimationState(ENEMY_TAKEDAMAGE);
         health--;
-        isTakingDamage = false;
+        damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
+        Invoke("DamageDelayComplete", damageDelay);
     }
      if (health <= 0)
         {
@@ -82,6 +84,10 @@ public class CommonEnemy : MonoBehaviour
             Invoke("Die",1f);
             
         }
+    }
+    void DamageDelayComplete()
+    {
+        isTakingDamage = false;
     }
     void Die()
     {
