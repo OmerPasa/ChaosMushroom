@@ -35,7 +35,6 @@ public class EnemyBee : MonoBehaviour
         {
         ChangeAnimationState(ENEMY_IDLE);
         }
-        
         Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
         if (timeBtwAttack <= 0)
@@ -45,11 +44,10 @@ public class EnemyBee : MonoBehaviour
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
-                isAttacking = true;
-                ChangeAnimationState(ENEMY_ATTACK);
-                enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
-                Debug.Log("damage given");
-                isAttacking = false;
+            isAttacking = true;
+            ChangeAnimationState(ENEMY_ATTACK);
+            Invoke("AttackComplete", damageDelay);
+            enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
             }
         }
         timeBtwAttack = startTimeBtwAttack;
@@ -57,6 +55,11 @@ public class EnemyBee : MonoBehaviour
         {
             timeBtwAttack -= Time.deltaTime;
         }
+    }
+    void AttackComplete()
+    {
+        isAttacking = false;
+        Debug.Log("ATTACKCOMPLETEBEE");
     }
     /// <summary>
     /// Callback to draw gizmos only if the object is selected.
@@ -86,6 +89,7 @@ public class EnemyBee : MonoBehaviour
             Invoke("Die",0.9f);
         }
     }
+
     void DamageDelayComplete()
     {
         isTakingDamage = false;
