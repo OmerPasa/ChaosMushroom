@@ -46,3 +46,6 @@ TagManager:
   - name: Main game
     uniqueID: 2354534323
     locked: 0
+  - name: Transparent
+    uniqueID: 472381523
+    locked: 0
