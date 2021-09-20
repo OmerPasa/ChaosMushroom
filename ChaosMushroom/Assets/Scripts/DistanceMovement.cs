@@ -8,12 +8,13 @@ using System;
 public class DistanceMovement : MonoBehaviour
 {
     public GameObject main;
-    public int distance = 0;
+    public float distance;
     void Update()
     {
-        int distance = (int)Vector3.Distance (main.transform.position, transform.position);  // kendisiyle ve ana obje arasındaki fark hesaplanır
+        distance = Vector3.Distance (main.transform.position, transform.position);  // kendisiyle ve ana obje arasındaki fark hesaplanır
         CHAOS.chaosValue = (int)distance;
-        Console.WriteLine(distance);
+        //(Vector3)distance = transform.localPosition;
+        Debug.Log(distance);
         
         /*if (CHAOS.chaosValue - distance >= 0) //artan chaos puanı 
         {
