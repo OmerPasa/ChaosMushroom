@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyBee : MonoBehaviour
 {
+    public AIPath aiPath;
     [SerializeField]
     private GameObject EnemyBeeAuto;
     [SerializeField]
@@ -26,11 +28,20 @@ public class EnemyBee : MonoBehaviour
     private bool isAttacking;
     private bool isTakingDamage;
     private bool isDying;
-    private void Start() {
+    private void Start() 
+    {
         animator = GetComponent<Animator>();
     }
     void Update() 
     {
+        if (aiPath.desiredVelocity.x >= 0.01f)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }else if (aiPath.desiredVelocity.x <= 0.01f)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        
         if (!isAttacking && !isTakingDamage && !isDying)
         {
         ChangeAnimationState(ENEMY_IDLE);
