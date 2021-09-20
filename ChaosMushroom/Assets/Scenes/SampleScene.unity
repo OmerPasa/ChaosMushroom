@@ -845,8 +845,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00015425682, y: -0.012382865}
-  m_Size: {x: 0.5046668, y: 0.9262097}
+  m_Offset: {x: -0.00015425682, y: -0.05359459}
+  m_Size: {x: 0.5046668, y: 1.0086331}
   m_Direction: 0
 --- !u!95 &706664060
 Animator:
@@ -2860,7 +2860,7 @@ PrefabInstance:
     - target: {fileID: 4071555852718324101, guid: f036f97a288c2354d88115623ac518c8, type: 3}
       propertyPath: Trutle
       value: 
-      objectReference: {fileID: 7888196500627903704, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      objectReference: {fileID: 2385274026236361594}
     - target: {fileID: 4071555852718324101, guid: f036f97a288c2354d88115623ac518c8, type: 3}
       propertyPath: Maxcount
       value: 5
@@ -2949,6 +2949,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6353981432127189298, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
+      propertyPath: m_Radius
+      value: 0.5849309
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353981432127189298, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.05045724
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353981432127189298, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.043126106
+      objectReference: {fileID: 0}
     - target: {fileID: 6353981432127189301, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3019,6 +3031,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5504158483150782920, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: m_Radius
+      value: 0.26679528
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504158483150782920, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0016328096
+      objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903704, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_Name
       value: EnemyTurtleAuto
