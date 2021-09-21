@@ -7,7 +7,7 @@ public class Mole_EnemyorBoss : MonoBehaviour
 {
     public AIPath aiPath;
     [SerializeField]
-    private GameObject EnemyBeeAuto;
+    private GameObject Mole_BossAuto;
     [SerializeField]
     private float timeBtwAttack;
     [SerializeField]
@@ -19,10 +19,13 @@ public class Mole_EnemyorBoss : MonoBehaviour
     public int health = 4;
     public int damage = 3;
     int Count;
-    const string ENEMY_IDLE = "Bee_Movement";
-    const string ENEMY_TAKEDAMAGE = "Bee_TakeDamage";
-    const string ENEMY_DEATH = "Bee_Explode";
-    const string ENEMY_ATTACK = "Bee_Attacking";
+    const string ENEMY_IDLE = "Mole_Idle";
+    const string ENEMY_TAKEDAMAGE = "Mole_TakeDamage";
+    const string ENEMY_DEATH = "Mole_Explode";
+    const string ENEMY_ATTACK = "Mole_Attack";
+    const string ENEMY_JUMP = "Mole_Jump";
+    const string ENEMY_JUMPATTACK = "Mole_JumpAttack";
+    const string ENEMY_MOVEMENT = "Mole_Movement";
     private Animator animator;
     private string currentAnimaton;
     private bool isAttacking;
@@ -70,7 +73,7 @@ public class Mole_EnemyorBoss : MonoBehaviour
     void AttackComplete()
     {
         isAttacking = false;
-        Debug.Log("ATTACKCOMPLETEBEE");
+        Debug.Log("ATTACKCOMPLETEBOSS");
     }
     /// <summary>
     /// Callback to draw gizmos only if the object is selected.
@@ -96,7 +99,7 @@ public class Mole_EnemyorBoss : MonoBehaviour
         {
             isDying = true;
             ChangeAnimationState(ENEMY_DEATH);
-            Debug.Log("BEE_DIED");
+            Debug.Log("MOLE_DIED");
             Invoke("Die",0.9f);
         }
     }
@@ -107,7 +110,7 @@ public class Mole_EnemyorBoss : MonoBehaviour
     }
     void Die()
     {
-        Destroy(EnemyBeeAuto);
+        Destroy(Mole_BossAuto);
     }
     void ChangeAnimationState(string newAnimation)
     {
