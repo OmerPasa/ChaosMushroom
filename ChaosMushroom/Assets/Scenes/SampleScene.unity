@@ -547,6 +547,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   main: {fileID: 1328841468}
   distance: 0
+--- !u!4 &477166485 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8312002204931336316, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+  m_PrefabInstance: {fileID: 6780463095561799882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &559024658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 354213879032613532, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+  m_PrefabInstance: {fileID: 6780463095561799882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &559024660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559024658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f31f560dea98245b4bba19d53c998b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiPath: {fileID: 6780463095561799887}
+  Mole_BossAuto: {fileID: 6780463095561799883}
+  timeBtwAttack: 6
+  startTimeBtwAttack: 3
+  damageDelay: 3
+  attackPos: {fileID: 477166485}
+  whatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 512
+  attackRange: 2
+  health: 10
+  damage: 5
+--- !u!50 &559024664
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559024658}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &577010709
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,6 +3313,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 354213879032613532, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+      propertyPath: m_Name
+      value: MoleBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 443946225461272841, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2239060557355455070, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: target
       value: 
@@ -3268,15 +3331,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6557555090175702208, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_Mass
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6557555090175702208, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_LinearDrag
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6557555090175702208, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_AngularDrag
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6557555090175702208, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_GravityScale
@@ -3326,13 +3389,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 443946225461272841, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+    - {fileID: 2489028034384160009, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+    - {fileID: 6557555090175702208, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
 --- !u!1 &6780463095561799883 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6546406946961284388, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
   m_PrefabInstance: {fileID: 6780463095561799882}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6780463095561799887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7547678335510249894, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+  m_PrefabInstance: {fileID: 6780463095561799882}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6780463095561799883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!483693784 &6989144124886945313
 TilemapRenderer:
   m_ObjectHideFlags: 0

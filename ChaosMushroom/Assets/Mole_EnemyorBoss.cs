@@ -12,10 +12,11 @@ public class Mole_EnemyorBoss : MonoBehaviour
     private float timeBtwAttack;
     [SerializeField]
     public float startTimeBtwAttack;
+    private float damageDelay;
+
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRange;
-    private float damageDelay;
     public int health = 4;
     public int damage = 3;
     int Count;
@@ -39,10 +40,10 @@ public class Mole_EnemyorBoss : MonoBehaviour
     {
         if (aiPath.desiredVelocity.x >= 0.01f)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }else if (aiPath.desiredVelocity.x <= 0.01f)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
         
         if (!isAttacking && !isTakingDamage && !isDying)
@@ -60,6 +61,7 @@ public class Mole_EnemyorBoss : MonoBehaviour
             {
             isAttacking = true;
             ChangeAnimationState(ENEMY_ATTACK);
+            damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
             Invoke("AttackComplete", damageDelay);
             enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
             }
