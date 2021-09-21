@@ -573,7 +573,6 @@ MonoBehaviour:
   Mole_BossAuto: {fileID: 6780463095561799883}
   timeBtwAttack: 6
   startTimeBtwAttack: 3
-  damageDelay: 3
   attackPos: {fileID: 477166485}
   whatIsEnemies:
     serializedVersion: 2
@@ -662,7 +661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577010709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0899994, y: -2.13, z: -10}
+  m_LocalPosition: {x: -2.0899997, y: -2.13, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 671593495}
@@ -1145,7 +1144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &919065365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1514,7 +1513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1328841469
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2201,7 +2200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0899994, y: -2.13, z: -10}
+  m_LocalPosition: {x: -2.0899997, y: -2.13, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2759,7 +2758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &2138677392
 Light:
   m_ObjectHideFlags: 0
@@ -3014,12 +3013,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4071555852718324100, guid: f036f97a288c2354d88115623ac518c8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4071555852718324101, guid: f036f97a288c2354d88115623ac518c8, type: 3}
       propertyPath: Trutle
       value: 
-      objectReference: {fileID: 4779969218782154783}
+      objectReference: {fileID: 2385274026236361594}
     - target: {fileID: 4071555852718324101, guid: f036f97a288c2354d88115623ac518c8, type: 3}
       propertyPath: Maxcount
       value: 3
@@ -3088,7 +3087,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -19.73, y: -0.2400155}
+  m_Offset: {x: -15.157598, y: -0.2400155}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3099,7 +3098,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 4.4461184}
+  m_Size: {x: 1.9109516, y: 4.4461184}
   m_EdgeRadius: 0
 --- !u!1001 &4278998855343814415
 PrefabInstance:
@@ -3131,6 +3130,10 @@ PrefabInstance:
     - target: {fileID: 8734681331224405776, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
       propertyPath: m_Name
       value: EnemyBeeAuto
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734681331224405776, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8734681331224405803, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
       propertyPath: m_RootOrder
@@ -3252,11 +3255,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903708, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45.37
+      value: 3.14
       objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903708, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.5
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903708, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3289,6 +3292,34 @@ PrefabInstance:
     - target: {fileID: 7888196500627903708, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888196500627903710, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: gravity.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888196500627903710, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: gravity.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888196500627903710, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: gravity.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888196500627903710, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: slowdownDistance
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888196500627903710, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888196500627903710, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: endReachedDistance
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888196500627903710, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: pickNextWaypointDist
+      value: 0.81
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
@@ -3328,6 +3359,10 @@ PrefabInstance:
     - target: {fileID: 6546406946961284388, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_Name
       value: Mole_BossAuto
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546406946961284388, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6557555090175702208, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_Mass
