@@ -2885,6 +2885,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7888196500627903704, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
   m_PrefabInstance: {fileID: 5504158482815741858}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2385274026236361596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7888196500627903710, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+  m_PrefabInstance: {fileID: 5504158482815741858}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2385274026236361594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2520192961666561521
 Transform:
   m_ObjectHideFlags: 0
@@ -3241,6 +3252,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.0016328096
       objectReference: {fileID: 0}
+    - target: {fileID: 5504158483150782922, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: aiPath
+      value: 
+      objectReference: {fileID: 2385274026236361596}
     - target: {fileID: 7888196500627903704, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_Name
       value: EnemyTurtleAuto

@@ -33,7 +33,7 @@ public class CommonEnemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
-    void Update() 
+    void FixedUpdate() 
     {
         if (aiPath.desiredVelocity.x >= 0.01f)
         {
@@ -51,12 +51,13 @@ public class CommonEnemy : MonoBehaviour
 
         if (timeBtwAttack <= 0)
         {
-        if (enemiesInRange.Length >= 1)
+        if (enemiesInRange.Length >= 1 && !isAttacking)
         {
+            isAttacking = true;
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
-                isAttacking = true;
+                
                 enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
                 Debug.Log("damage given");
                 isAttacking = false;
@@ -85,8 +86,9 @@ public class CommonEnemy : MonoBehaviour
         Destroy(collision.gameObject);
         ChangeAnimationState(ENEMY_TAKEDAMAGE);
         health--;
-        damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
-        Invoke("DamageDelayComplete", damageDelay);
+        isTakingDamage = false;
+        //damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
+        //Invoke("DamageDelayComplete", damageDelay);
     }
      if (health <= 0)
         {
@@ -96,10 +98,10 @@ public class CommonEnemy : MonoBehaviour
             
         }
     }
-    void DamageDelayComplete()
+    /*void DamageDelayComplete()
     {
         isTakingDamage = false;
-    }
+    }*/
     void Die()
     {
         Destroy(EnemyTurtleAuto);
