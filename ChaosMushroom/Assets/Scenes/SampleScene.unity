@@ -571,13 +571,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiPath: {fileID: 6780463095561799887}
   Mole_BossAuto: {fileID: 6780463095561799883}
-  timeBtwAttack: 6
-  startTimeBtwAttack: 3
+  timeBtwAttack: 4
+  startTimeBtwAttack: 2
   attackPos: {fileID: 477166485}
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 512
-  attackRange: 2
+  attackRange: 1.85
   health: 10
   damage: 5
 --- !u!50 &559024664
@@ -592,15 +592,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 10
+  m_LinearDrag: 1
+  m_AngularDrag: 0.5
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!1 &577010709
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,6 +3260,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTurtleAuto
       objectReference: {fileID: 0}
+    - target: {fileID: 7888196500627903704, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903705, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: target
       value: 
@@ -3270,7 +3274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903708, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.14
+      value: 8.59
       objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903708, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3371,13 +3375,17 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 706664056}
+    - target: {fileID: 2413529955435800686, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6546406946961284388, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_Name
       value: Mole_BossAuto
       objectReference: {fileID: 0}
     - target: {fileID: 6546406946961284388, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6557555090175702208, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_Mass
@@ -3395,17 +3403,37 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7547678335510249894, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+      propertyPath: radius
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547678335510249894, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+      propertyPath: gravity.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547678335510249894, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+      propertyPath: alwaysDrawGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547678335510249894, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547678335510249894, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+      propertyPath: constrainInsideGraph
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9174963718222712001, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9174963718222712001, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.83
+      value: 9.13
       objectReference: {fileID: 0}
     - target: {fileID: 9174963718222712001, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.05
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 9174963718222712001, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_LocalPosition.z

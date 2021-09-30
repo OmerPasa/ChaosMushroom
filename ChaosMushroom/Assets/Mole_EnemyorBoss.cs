@@ -5,6 +5,7 @@ using Pathfinding;
 
 public class Mole_EnemyorBoss : MonoBehaviour
 {
+    private Rigidbody2D rb2d;
     public AIPath aiPath;
     [SerializeField]
     private GameObject Mole_BossAuto;
@@ -12,6 +13,7 @@ public class Mole_EnemyorBoss : MonoBehaviour
     private float timeBtwAttack;
     [SerializeField]
     public float startTimeBtwAttack;
+    //private float xAxis;
     private float damageDelay;
 
     public Transform attackPos;
@@ -36,7 +38,7 @@ public class Mole_EnemyorBoss : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
-    void Update() 
+    void FixedUpdate() 
     {
         if (aiPath.desiredVelocity.x >= 0.01f)
         {
@@ -45,11 +47,23 @@ public class Mole_EnemyorBoss : MonoBehaviour
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
-        
+        Debug.Log(rb2d.velocity.x);
+        //xAxis = rb2d.velocity.x;
+        //aiPath.desiredVelocity.x
+
         if (!isAttacking && !isTakingDamage && !isDying)
         {
-        ChangeAnimationState(ENEMY_IDLE);
+            if (aiPath.desiredVelocity.x != 0.00f)
+            {
+                ChangeAnimationState(ENEMY_MOVEMENT);
+            }
+            else
+            {
+                ChangeAnimationState(ENEMY_IDLE);
+            }
         }
+
+
         Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
         if (timeBtwAttack <= 0)

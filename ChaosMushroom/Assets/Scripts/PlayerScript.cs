@@ -76,14 +76,12 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rb2d.velocity = new Vector2(runSpeed, rb2d.velocity.y);
-
             transform.localScale = new Vector3(1, 1, 1);
             isFacingLeft = false;
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb2d.velocity = new Vector2(-runSpeed, rb2d.velocity.y);
-
             transform.localScale = new Vector3(-1, 1, 1);
             isFacingLeft = true;
         }else if (isGrounded)
