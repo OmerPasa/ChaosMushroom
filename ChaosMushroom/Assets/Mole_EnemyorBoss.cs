@@ -61,7 +61,7 @@ public class Mole_EnemyorBoss : MonoBehaviour
 
         if (!isAttacking && !isTakingDamage && !isDying)
         {
-            if (transform.hasChanged)
+            if (Rigidbody2D.velocity.x != 0.00f)
             {
                 ChangeAnimationState(ENEMY_MOVEMENT);
                 
