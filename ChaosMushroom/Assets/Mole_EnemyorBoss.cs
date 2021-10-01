@@ -36,7 +36,7 @@ public class Mole_EnemyorBoss : MonoBehaviour
     private void Start() 
     {
         animator = GetComponent<Animator>();
-        //Rigidbody2D.constraints = RigidbodyConstraints.FreezePosition.z;
+        //Rigidbody2D.constraints = RigidbodyConstraints.FreezePositionZ;
     }
     void FixedUpdate() 
     {
@@ -48,14 +48,14 @@ public class Mole_EnemyorBoss : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
-        //tring clamp but in vain ? :/
+        /*//tring clamp but in vain ? :/
         if (transform.position.z <= -0.01f || transform.position.z >= 0.01f)
         {
             //Vector3 clampedPosition = transform.position;
             float zPos = Mathf.Clamp(0, -1.00f, 1.00f);
             transform.position = new Vector3(transform.position.x , transform.position.y , zPos);
         }
-
+        */
        // trying to slow down movement
        //Rigidbody2D.velocity.x != 0.00f
 
