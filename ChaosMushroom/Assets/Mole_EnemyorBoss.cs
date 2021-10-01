@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class Mole_EnemyorBoss : MonoBehaviour
 {
-    private Rigidbody2D rb2d;
+    public Rigidbody2D Rigidbody2D;
     public AIPath aiPath;
     [SerializeField]
     private GameObject Mole_BossAuto;
@@ -13,7 +13,6 @@ public class Mole_EnemyorBoss : MonoBehaviour
     private float timeBtwAttack;
     [SerializeField]
     public float startTimeBtwAttack;
-    //private float xAxis;
     private float damageDelay;
 
     public Transform attackPos;
@@ -34,9 +33,11 @@ public class Mole_EnemyorBoss : MonoBehaviour
     private bool isAttacking;
     private bool isTakingDamage;
     private bool isDying;
+    private float zMin = -1.0f, zMax = 1.0f;
     private void Start() 
     {
         animator = GetComponent<Animator>();
+ 
     }
     void FixedUpdate() 
     {
@@ -47,13 +48,18 @@ public class Mole_EnemyorBoss : MonoBehaviour
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
-        Debug.Log(rb2d.velocity.x);
-        //xAxis = rb2d.velocity.x;
-        //aiPath.desiredVelocity.x
 
+
+        if (transform.position.z <= -0.01f || transform.position.z >= 0.01f)
+        {
+            //Vector3 clampedPosition = transform.position;
+            float zPos = Mathf.Clamp(0, -1.00f, 1.00f);
+            transform.position = new Vector3(transform.position.x , transform.position.y , zPos);
+        }
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0.5f, 0.5f), transform.position.y, transform.position.z);
         if (!isAttacking && !isTakingDamage && !isDying)
         {
-            if (aiPath.desiredVelocity.x != 0.00f)
+            if (Rigidbody2D.velocity.x != 0.00f)
             {
                 ChangeAnimationState(ENEMY_MOVEMENT);
             }
@@ -86,14 +92,13 @@ public class Mole_EnemyorBoss : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         }
     }
+
     void AttackComplete()
     {
         isAttacking = false;
         Debug.Log("ATTACKCOMPLETEBOSS");
     }
-    /// <summary>
-    /// Callback to draw gizmos only if the object is selected.
-    /// </summary>
+    // Callback to draw gizmos only if the object is selected.
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
@@ -108,8 +113,9 @@ public class Mole_EnemyorBoss : MonoBehaviour
         Destroy(collision.gameObject);
         ChangeAnimationState(ENEMY_TAKEDAMAGE);
         health--;
-        damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
-        Invoke("DamageDelayComplete", damageDelay);
+        isTakingDamage = false;
+        //damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
+        //Invoke("DamageDelayComplete", damageDelay);
     }
      if (health <= 0)
         {
@@ -120,10 +126,6 @@ public class Mole_EnemyorBoss : MonoBehaviour
         }
     }
 
-    void DamageDelayComplete()
-    {
-        isTakingDamage = false;
-    }
     void Die()
     {
         Destroy(Mole_BossAuto);
