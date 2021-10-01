@@ -56,7 +56,6 @@ public class Mole_EnemyorBoss : MonoBehaviour
             float zPos = Mathf.Clamp(0, -1.00f, 1.00f);
             transform.position = new Vector3(transform.position.x , transform.position.y , zPos);
         }
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0.5f, 0.5f), transform.position.y, transform.position.z);
         if (!isAttacking && !isTakingDamage && !isDying)
         {
             if (Rigidbody2D.velocity.x != 0.00f)
