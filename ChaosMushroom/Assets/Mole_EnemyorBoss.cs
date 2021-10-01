@@ -33,11 +33,10 @@ public class Mole_EnemyorBoss : MonoBehaviour
     private bool isAttacking;
     private bool isTakingDamage;
     private bool isDying;
-    private float zMin = -1.0f, zMax = 1.0f;
     private void Start() 
     {
         animator = GetComponent<Animator>();
- 
+        //Rigidbody2D.constraints = RigidbodyConstraints.FreezePosition.z;
     }
     void FixedUpdate() 
     {
@@ -49,22 +48,28 @@ public class Mole_EnemyorBoss : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
-
+        //tring clamp but in vain ? :/
         if (transform.position.z <= -0.01f || transform.position.z >= 0.01f)
         {
             //Vector3 clampedPosition = transform.position;
             float zPos = Mathf.Clamp(0, -1.00f, 1.00f);
             transform.position = new Vector3(transform.position.x , transform.position.y , zPos);
         }
+
+       // trying to slow down movement
+       //Rigidbody2D.velocity.x != 0.00f
+
         if (!isAttacking && !isTakingDamage && !isDying)
         {
-            if (Rigidbody2D.velocity.x != 0.00f)
+            if (transform.hasChanged)
             {
                 ChangeAnimationState(ENEMY_MOVEMENT);
+                
             }
             else
             {
                 ChangeAnimationState(ENEMY_IDLE);
+                
             }
         }
 
