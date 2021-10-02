@@ -58,7 +58,7 @@ public class Mole_EnemyorBoss : MonoBehaviour
         */
        // trying to slow down movement
        //Rigidbody2D.velocity.x != 0.00f
-
+       // transform.hasChanged
         if (!isAttacking && !isTakingDamage && !isDying)
         {
             if (Rigidbody2D.velocity.x != 0.00f)
@@ -117,9 +117,8 @@ public class Mole_EnemyorBoss : MonoBehaviour
         Destroy(collision.gameObject);
         ChangeAnimationState(ENEMY_TAKEDAMAGE);
         health--;
-        isTakingDamage = false;
-        //damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
-        //Invoke("DamageDelayComplete", damageDelay);
+        damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
+        Invoke("DamageDelayComplete", damageDelay);
     }
      if (health <= 0)
         {
@@ -129,7 +128,10 @@ public class Mole_EnemyorBoss : MonoBehaviour
             Invoke("Die",0.9f);
         }
     }
-
+    void DamageDelayComplete()
+    {
+        isTakingDamage = false;
+    }
     void Die()
     {
         Destroy(Mole_BossAuto);
