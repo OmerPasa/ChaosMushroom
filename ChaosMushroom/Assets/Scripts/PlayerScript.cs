@@ -37,7 +37,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     private float attackDelay;
     private float damageDelay;
+    public int maxHealth = 10;
     public int Playerhealth;
+    public healthbar_control healthbar;
 
     //Animation States
     const string PLAYER_IDLE = "Player_Idle_Gun";
@@ -59,10 +61,11 @@ public class PlayerScript : MonoBehaviour
         AfterFiringMusic = GetComponent<AudioSource>();
         AudioSource BackGroundM = GameObject.Find("BackGroundMusic").GetComponent<AudioSource>();
         BulletScriptt BulletScript = GameObject.Find("BulletPrefab").GetComponent<BulletScriptt>();
-       
+        Playerhealth = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
     }
     void Update()
-    {   
+    {  
         if (Playerhealth <= 0)
         {
             isntDead = false;
@@ -180,6 +183,7 @@ public class PlayerScript : MonoBehaviour
     {
         TakingDamage = true;
         Playerhealth -= damage;
+        healthbar.SetHealth(Playerhealth);
         Debug.Log("damageTaken");
         ChangeAnimationState(PLAYER_TAKEDAMAGE);
         Debug.Log("ANİMATİON CHANGED TO TAKEDAMAGE!!!!!!!!");

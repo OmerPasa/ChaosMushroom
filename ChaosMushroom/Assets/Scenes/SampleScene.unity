@@ -857,7 +857,9 @@ MonoBehaviour:
   firePoint: {fileID: 2051389432}
   BulletPre: {fileID: 6422635532049287424, guid: ce10a8d57b82ba849bb686efd2b0b0ac, type: 3}
   attackDelay: 1
+  maxHealth: 10
   Playerhealth: 10
+  healthbar: {fileID: 1479073239}
 --- !u!70 &706664059
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1928,6 +1930,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1479073237}
   - component: {fileID: 1479073238}
+  - component: {fileID: 1479073239}
   m_Layer: 5
   m_Name: healthbar
   m_TagString: Untagged
@@ -2008,6 +2011,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1479073239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479073236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10eefc33c499f2a48b8b33f5b56ca7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1479073238}
 --- !u!1001 &1497981852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2619,7 +2635,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789856455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 276, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 960026125}
@@ -3574,6 +3590,14 @@ PrefabInstance:
       propertyPath: aiPath
       value: 
       objectReference: {fileID: 2385274026236361596}
+    - target: {fileID: 5504158483150782922, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: timeBtwAttack
+      value: 6.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504158483150782922, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: startTimeBtwAttack
+      value: 4.13
+      objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903704, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_Name
       value: EnemyTurtleAuto
