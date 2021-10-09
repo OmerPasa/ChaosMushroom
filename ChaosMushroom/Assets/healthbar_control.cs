@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class healthbar_control : MonoBehaviour
 {
+    public MainMenu mainMenu;
     public Slider slider;
     public void SetMaxHealth(int health)
     {
@@ -15,5 +16,9 @@ public class healthbar_control : MonoBehaviour
     public void SetHealth(int health)
     {
         slider.value = health;
+        if (health <= 0)
+        {
+            mainMenu.GameIsOver();
+        }
     }
 }
