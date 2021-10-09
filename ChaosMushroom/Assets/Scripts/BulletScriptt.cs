@@ -39,7 +39,7 @@ public class BulletScriptt : MonoBehaviour
 
     }
     */
-    private void Collision2D (Collider2D collision)
+    void Collision2D (Collider2D collision)
     {
         if(collision.CompareTag("Ground"))
       {
