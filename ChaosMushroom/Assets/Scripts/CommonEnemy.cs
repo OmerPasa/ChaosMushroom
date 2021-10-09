@@ -53,14 +53,12 @@ public class CommonEnemy : MonoBehaviour
         {
         if (enemiesInRange.Length >= 1 && !isAttacking)
         {
-            isAttacking = true;
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
-                
-                enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
-                Debug.Log("damage given");
-                isAttacking = false;
+            isAttacking = true;
+            Invoke("AttackComplete", startTimeBtwAttack);
+            enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
             }
         }
         timeBtwAttack = startTimeBtwAttack;
@@ -68,6 +66,11 @@ public class CommonEnemy : MonoBehaviour
         {
             timeBtwAttack -= Time.deltaTime;
         }
+    }
+        void AttackComplete()
+    {
+        isAttacking = false;
+        Debug.Log("ATTACKCOMPLETE TURTLE");
     }
     /// <summary>
     /// Callback to draw gizmos only if the object is selected.
