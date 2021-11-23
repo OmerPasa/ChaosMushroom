@@ -28,6 +28,7 @@ public class EnemyBee : MonoBehaviour
     private bool isAttacking;
     private bool isTakingDamage;
     private bool isDying;
+    public GameObject PlayerScript;
     private void Start() 
     {
         animator = GetComponent<Animator>();
@@ -50,16 +51,12 @@ public class EnemyBee : MonoBehaviour
 
         if (timeBtwAttack <= 0)
         {
-        if (enemiesInRange.Length >= 1)
+        if (enemiesInRange.Length >= 1 && !isAttacking)
         {
-            //for giving every one of enemies damage.
-            for (int i = 0; i < enemiesInRange.Length; i++)
-            {
             isAttacking = true;
-            ChangeAnimationState(ENEMY_ATTACK);
-            Invoke("AttackComplete", damageDelay);
-            enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
-            }
+            Invoke("AttackComplete", startTimeBtwAttack);
+            PlayerScript.GetComponent<PlayerScript>().PlayerTakeDamage(damage);
+            Debug.Log("Playerscript_computed");
         }
         timeBtwAttack = startTimeBtwAttack;
         } else
