@@ -38,11 +38,7 @@ public class SpawnArea : MonoBehaviour
        for (Count = 0; Count < Maxcount; Count++)
        {
            Instantiate(Trutle,new Vector3(xPos,yPos,0f),Quaternion.identity);
-           yield return new WaitForSeconds(1f);
-       }
-       if (Count == 3)
-       {
-           Destroy(gameObject);
+           yield return new WaitForSeconds(0.1f);
        }
        /*
        if (Count == Maxcount)

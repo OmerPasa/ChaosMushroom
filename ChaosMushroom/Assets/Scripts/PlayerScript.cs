@@ -9,7 +9,6 @@ using System;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField]
-    private float a;
     private float runSpeed;
 
     [SerializeField]
