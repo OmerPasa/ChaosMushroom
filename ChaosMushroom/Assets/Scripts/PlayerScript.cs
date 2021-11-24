@@ -59,8 +59,7 @@ public class PlayerScript : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         AfterFiringMusic = GetComponent<AudioSource>();
-        AudioSource BackGroundM = GameObject.Find("BackGroundMusic").GetComponent<AudioSource>();
-        BulletScriptt BulletScript = GameObject.Find("BulletPrefab").GetComponent<BulletScriptt>();
+        BackGroundM = GetComponent<AudioSource>();
         Playerhealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
     }

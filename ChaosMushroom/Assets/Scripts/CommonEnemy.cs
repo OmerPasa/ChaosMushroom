@@ -23,15 +23,19 @@ public class CommonEnemy : MonoBehaviour
     const string ENEMY_IDLERUN = "Turtle_Idle-Run";
     const string ENEMY_DEATH = "Turtle_Explode";
     const string ENEMY_TAKEDAMAGE = "Turtle_TakeDamage";
-        private Animator animator;
+    private Animator animator;
+    public GameObject PlayerScript;
+    public PlayerScript playerScript;
     private string currentAnimaton;
     private bool isAttacking;
     private bool isTakingDamage;
     
     private bool isDying;
-    private void Start() 
+    void Start() 
     {
         animator = GetComponent<Animator>();
+        //PlayerScript = FindObjectOfType<PlayerScript>();
+        //PlayerScript PlayerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
     }
     void FixedUpdate() 
     {
@@ -51,14 +55,15 @@ public class CommonEnemy : MonoBehaviour
 
         if (timeBtwAttack <= 0)
         {
-        if (enemiesInRange.Length >= 1 && !isAttacking)
+            Debug.Log(enemiesInRange);
+        if (enemiesInRange.Length >= 1)
         {
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
             isAttacking = true;
-            Invoke("AttackComplete", startTimeBtwAttack);
-            enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
+            Invoke("AttackComplete", damageDelay);
+            playerScript.GetComponent<PlayerScript>().PlayerTakeDamage(damage);
             }
         }
         timeBtwAttack = startTimeBtwAttack;

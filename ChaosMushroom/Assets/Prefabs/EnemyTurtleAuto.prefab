@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946fef28e964d994981e845dae72cd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aiPath: {fileID: 7888196500627903710}
   EnemyTurtleAuto: {fileID: 7888196500627903704}
   timeBtwAttack: 5
   startTimeBtwAttack: 2
@@ -176,6 +177,7 @@ MonoBehaviour:
   attackRange: 0.87
   health: 2
   damage: 1
+  PlayerScript: {fileID: 0}
 --- !u!95 &5504158483150782917
 Animator:
   serializedVersion: 3
