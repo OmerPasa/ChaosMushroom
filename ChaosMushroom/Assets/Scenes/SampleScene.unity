@@ -30686,6 +30686,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2385274026236361596}
     - target: {fileID: 5504158483150782922, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
+      propertyPath: attackRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504158483150782922, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: PlayerScript
       value: 
       objectReference: {fileID: 706664054}
@@ -30695,11 +30699,11 @@ PrefabInstance:
       objectReference: {fileID: 706664058}
     - target: {fileID: 5504158483150782922, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: timeBtwAttack
-      value: 6.78
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5504158483150782922, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: startTimeBtwAttack
-      value: 4.13
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903704, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_Name

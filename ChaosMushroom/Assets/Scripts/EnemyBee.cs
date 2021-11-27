@@ -52,6 +52,7 @@ public class EnemyBee : MonoBehaviour
         {
         if (enemiesInRange.Length >= 1)
         {
+            Debug.Log("Player_In_Range!!");
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
             {

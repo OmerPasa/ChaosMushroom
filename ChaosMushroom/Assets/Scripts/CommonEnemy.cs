@@ -51,19 +51,21 @@ public class CommonEnemy : MonoBehaviour
         {
         ChangeAnimationState(ENEMY_IDLERUN);
         }
+        // so why even though range is 0 and collider given to code is wayyy far  away this is working?
         Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
-        if (timeBtwAttack <= 0)
+        if (timeBtwAttack <= 0)            //making sure it isn't attaking always
         {
-            Debug.Log(enemiesInRange);
-        if (enemiesInRange.Length >= 1)
+        if (enemiesInRange.Length >= 1)     // my collider detector 
         {
+            Debug.Log(enemiesInRange.Length + "ENEMİES İN RANGE");
+            Debug.Log("Player_In_Range!!");
             //for giving every one of enemies damage.
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
             isAttacking = true;
+            playerScript.GetComponent<PlayerScript>().PlayerTakeDamage(damage);// that code should not work .
             Invoke("AttackComplete", damageDelay);
-            playerScript.GetComponent<PlayerScript>().PlayerTakeDamage(damage);
             }
         }
         timeBtwAttack = startTimeBtwAttack;
