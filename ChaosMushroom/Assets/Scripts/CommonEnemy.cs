@@ -24,20 +24,18 @@ public class CommonEnemy : MonoBehaviour
     const string ENEMY_DEATH = "Turtle_Explode";
     const string ENEMY_TAKEDAMAGE = "Turtle_TakeDamage";
     private Animator animator;
-    public GameObject PlayerScript;
-    public PlayerScript playerScript;
     private string currentAnimaton;
     private bool isAttacking;
     private bool isTakingDamage;
-    
     private bool isDying;
-    void Start() 
+    public GameObject PlayerScript;
+    public PlayerScript playerScript;
+    private void Start() 
     {
         animator = GetComponent<Animator>();
-        //PlayerScript = FindObjectOfType<PlayerScript>();
-        //PlayerScript PlayerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
+        PlayerScript PlayerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
     }
-    void FixedUpdate() 
+    void Update() 
     {
         if (aiPath.desiredVelocity.x >= 0.01f)
         {
@@ -51,12 +49,11 @@ public class CommonEnemy : MonoBehaviour
         {
         ChangeAnimationState(ENEMY_IDLERUN);
         }
-        // so why even though range is 0 and collider given to code is wayyy far  away this is working?
         Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
-        if (timeBtwAttack <= 0)            //making sure it isn't attaking always
+        if (timeBtwAttack <= 0)
         {
-        if (enemiesInRange.Length >= 1)     // my collider detector 
+        if (enemiesInRange.Length >= 1)
         {
             Debug.Log(enemiesInRange.Length + "ENEMİES İN RANGE");
             Debug.Log("Player_In_Range!!");
@@ -64,8 +61,8 @@ public class CommonEnemy : MonoBehaviour
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
             isAttacking = true;
-            playerScript.GetComponent<PlayerScript>().PlayerTakeDamage(damage);// that code should not work .
             Invoke("AttackComplete", damageDelay);
+            enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
             }
         }
         timeBtwAttack = startTimeBtwAttack;
@@ -74,10 +71,10 @@ public class CommonEnemy : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         }
     }
-        void AttackComplete()
+    void AttackComplete()
     {
         isAttacking = false;
-        Debug.Log("ATTACKCOMPLETE TURTLE");
+        Debug.Log("ATTACKCOMPLETETURTLE");
     }
     /// <summary>
     /// Callback to draw gizmos only if the object is selected.
@@ -96,22 +93,22 @@ public class CommonEnemy : MonoBehaviour
         Destroy(collision.gameObject);
         ChangeAnimationState(ENEMY_TAKEDAMAGE);
         health--;
-        isTakingDamage = false;
-        //damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
-        //Invoke("DamageDelayComplete", damageDelay);
+        damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
+        Invoke("DamageDelayComplete", damageDelay);
     }
      if (health <= 0)
         {
             isDying = true;
             ChangeAnimationState(ENEMY_DEATH);
-            Invoke("Die",1f);
-            
+            Debug.Log("BEE_DIED");
+            Invoke("Die",0.9f);
         }
     }
-    /*void DamageDelayComplete()
+
+    void DamageDelayComplete()
     {
         isTakingDamage = false;
-    }*/
+    }
     void Die()
     {
         Destroy(EnemyTurtleAuto);
