@@ -6,7 +6,7 @@ using System.Timers;
 public class SpawnArea : MonoBehaviour
 {
     private bool collusionhappened;
-    public GameObject Trutle;
+    public GameObject SpawnedObject;
     public Transform EnemySpawner;
     int xPos;
     int yPos;
@@ -25,8 +25,8 @@ public class SpawnArea : MonoBehaviour
             return;   
         }else
         {
-        xPos = (int)transform.position.x;
-        yPos = (int)transform.position.y;
+        xPos = (int)EnemySpawner.transform.position.x;
+        yPos = (int)EnemySpawner.transform.position.y;
         StartCoroutine(EnemyDrop());
         collusionhappened = true;      
         }
@@ -37,7 +37,7 @@ public class SpawnArea : MonoBehaviour
    {
        for (Count = 0; Count < Maxcount; Count++)
        {
-           Instantiate(Trutle,new Vector3(xPos,yPos,0f),Quaternion.identity);
+           Instantiate(SpawnedObject,new Vector3(xPos,yPos,0f),Quaternion.identity);
            yield return new WaitForSeconds(0.1f);
        }
        /*
