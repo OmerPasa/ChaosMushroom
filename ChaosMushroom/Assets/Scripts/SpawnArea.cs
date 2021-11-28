@@ -7,7 +7,7 @@ public class SpawnArea : MonoBehaviour
 {
     private bool collusionhappened;
     public GameObject SpawnedObject;
-    public Transform EnemySpawner;
+    public Transform SpawningPlace;
     int xPos;
     int yPos;
     [SerializeField]
@@ -25,8 +25,8 @@ public class SpawnArea : MonoBehaviour
             return;   
         }else
         {
-        xPos = (int)EnemySpawner.transform.position.x;
-        yPos = (int)EnemySpawner.transform.position.y;
+        xPos = (int)SpawningPlace.transform.position.x;
+        yPos = (int)SpawningPlace.transform.position.y;
         StartCoroutine(EnemyDrop());
         collusionhappened = true;      
         }
