@@ -24,6 +24,7 @@ public class EnemyBee : MonoBehaviour
     const string ENEMY_DEATH = "Bee_Explode";
     const string ENEMY_ATTACK = "Bee_Attacking";
     private Animator animator;
+    public PlayerScript playerScript;
     private string currentAnimaton;
     private bool isAttacking;
     private bool isTakingDamage;
@@ -59,7 +60,7 @@ public class EnemyBee : MonoBehaviour
             isAttacking = true;
             ChangeAnimationState(ENEMY_ATTACK);
             Invoke("AttackComplete", damageDelay);
-            enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
+            playerScript.GetComponent<PlayerScript>().PlayerTakeDamage(damage);
             }
         }
         timeBtwAttack = startTimeBtwAttack;

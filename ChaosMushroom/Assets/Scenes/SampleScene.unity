@@ -30568,6 +30568,10 @@ PrefabInstance:
       propertyPath: aiPath
       value: 
       objectReference: {fileID: 4779969218782154786}
+    - target: {fileID: 6353981432127189302, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 706664058}
     - target: {fileID: 8734681331224405776, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
       propertyPath: m_Name
       value: EnemyBeeAuto
@@ -30582,7 +30586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8734681331224405803, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.97
+      value: 20.32
       objectReference: {fileID: 0}
     - target: {fileID: 8734681331224405803, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30667,11 +30671,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5504158482870117637, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5504158483150782919, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5504158483150782920, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_Radius
@@ -30687,7 +30691,7 @@ PrefabInstance:
       objectReference: {fileID: 2385274026236361596}
     - target: {fileID: 5504158483150782922, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: attackRange
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5504158483150782922, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: PlayerScript
@@ -30699,7 +30703,7 @@ PrefabInstance:
       objectReference: {fileID: 706664058}
     - target: {fileID: 5504158483150782922, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: timeBtwAttack
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5504158483150782922, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: startTimeBtwAttack
@@ -30711,7 +30715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903704, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903704, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_IsActive
@@ -30727,11 +30731,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903708, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.85
+      value: 6.2
       objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903708, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.06
+      value: -0.34
       objectReference: {fileID: 0}
     - target: {fileID: 7888196500627903708, guid: 4fc15ecdab3c2e6479956bfbe8a0c934, type: 3}
       propertyPath: m_LocalPosition.z

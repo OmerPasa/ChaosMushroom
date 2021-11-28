@@ -12,10 +12,10 @@ public class CommonEnemy : MonoBehaviour
     private float timeBtwAttack;
     [SerializeField]
     public float startTimeBtwAttack;
-    
-    public Transform attackPos;
+    [SerializeField]
+    private Transform attackPos;
     public LayerMask whatIsEnemies;
-    public float attackRange;
+    private float attackRange = 1;
     private float damageDelay;
     public int health = 4;
     public int damage = 1;
@@ -24,7 +24,6 @@ public class CommonEnemy : MonoBehaviour
     const string ENEMY_DEATH = "Turtle_Explode";
     const string ENEMY_TAKEDAMAGE = "Turtle_TakeDamage";
     private Animator animator;
-    public GameObject PlayerScript;
     public PlayerScript playerScript;
     private string currentAnimaton;
     private bool isAttacking;
