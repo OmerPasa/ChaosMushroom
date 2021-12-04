@@ -40,6 +40,7 @@ public class PlayerScript : MonoBehaviour
     public int maxHealth = 10;
     public int Playerhealth;
     public healthbar_control healthbar;
+    public MainMenu mainMenu;
 
     //Animation States
     const string PLAYER_IDLE = "Player_Idle_Gun";
@@ -192,6 +193,13 @@ public class PlayerScript : MonoBehaviour
     void DamageDelayComplete()
     {
         TakingDamage = false;
+    }
+    void OnCollisionEnter2D(Collision2D water) 
+    {
+        if (water.gameObject.tag == "Water")
+        {
+            mainMenu.GameIsOver();
+        }
     }
 
     //=====================================================

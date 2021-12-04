@@ -63,7 +63,7 @@ public class CommonEnemy : MonoBehaviour
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
             isAttacking = true;
-            playerScript.GetComponent<PlayerScript>().PlayerTakeDamage(damage);// that code should not work .
+            playerScript.GetComponent<PlayerScript>().PlayerTakeDamage(damage);
             Invoke("AttackComplete", damageDelay);
             }
         }
