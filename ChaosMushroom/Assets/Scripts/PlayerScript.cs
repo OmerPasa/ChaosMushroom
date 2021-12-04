@@ -41,6 +41,7 @@ public class PlayerScript : MonoBehaviour
     public int Playerhealth;
     public healthbar_control healthbar;
     public MainMenu mainMenu;
+    private CheckPointSystem gm;
 
     //Animation States
     const string PLAYER_IDLE = "Player_Idle_Gun";
@@ -63,9 +64,11 @@ public class PlayerScript : MonoBehaviour
         BackGroundM = GetComponent<AudioSource>();
         Playerhealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
+        gm = GameObject.FindGameObjectWithTag("gm").GetComponent<CheckPointSystem>();
+        transform.position = gm.lastCheckPointPos;
     }
     void Update()
-    {  
+    {
         if (Playerhealth <= 0)
         {
             isntDead = false;

@@ -489,6 +489,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f036f97a288c2354d88115623ac518c8, type: 3}
+--- !u!1 &265308523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1991300845520533749, guid: e5d3631bfe36a304a985dce311e8fc06, type: 3}
+  m_PrefabInstance: {fileID: 379648970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!19719996 &265308527
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265308523}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &282121684
 GameObject:
   m_ObjectHideFlags: 0
@@ -17621,6 +17642,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1991300845520533749, guid: e5d3631bfe36a304a985dce311e8fc06, type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: 1991300845520533750, guid: e5d3631bfe36a304a985dce311e8fc06, type: 3}
       propertyPath: m_Tiles.Array.size
       value: 499
@@ -27484,7 +27509,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577010709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2999995, y: -0.5, z: -10}
+  m_LocalPosition: {x: 102.3, y: -12.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 671593495}
@@ -27659,7 +27684,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706664054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3, y: -0.5, z: 0}
+  m_LocalPosition: {x: 102.3, y: -12.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1313926793}
@@ -27711,6 +27736,7 @@ MonoBehaviour:
   maxHealth: 10
   Playerhealth: 10
   healthbar: {fileID: 1479073239}
+  mainMenu: {fileID: 282121686}
 --- !u!70 &706664059
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -30260,7 +30286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2999995, y: -0.5, z: -10}
+  m_LocalPosition: {x: 102.3, y: -12.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

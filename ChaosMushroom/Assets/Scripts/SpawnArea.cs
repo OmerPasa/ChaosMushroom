@@ -14,12 +14,18 @@ public class SpawnArea : MonoBehaviour
     private int Maxcount;
     [SerializeField]
      private int Count;
-     
+     private CheckPointSystem gm;
+
+    void Start()
+    {
+        gm = GameObject.FindGameObjectWithTag("gm").GetComponent<CheckPointSystem>();
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("triggered!!!!");
     if(other.gameObject.tag == "Player")
     {
+        gm.lastCheckPointPos = transform.position;
         if (collusionhappened)
         {
             return;   
@@ -52,4 +58,6 @@ public class SpawnArea : MonoBehaviour
 
         */
     }
+
+
 }
