@@ -65,7 +65,11 @@ public class PlayerScript : MonoBehaviour
         Playerhealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
         gm = GameObject.FindGameObjectWithTag("gm").GetComponent<CheckPointSystem>();
-        //transform.position = gm.lastCheckPointPos;
+        if (Playerhealth == 0)
+        {
+            transform.position = gm.lastCheckPointPos;
+        }
+        
     }
     void Update()
     {
@@ -121,6 +125,11 @@ public class PlayerScript : MonoBehaviour
         else
         {
             isGrounded = false;
+        }
+
+        if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Water")))
+        {
+            Playerhealth -= 10;
         }
 
         //------------------------------------------

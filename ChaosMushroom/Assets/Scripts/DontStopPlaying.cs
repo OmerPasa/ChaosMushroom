@@ -12,8 +12,8 @@ public class DontStopPlaying : MonoBehaviour
         Debug.Log("started");
     }
     public float volumeBack;
-    void Awake() 
+    /*void Awake() 
     {
         DontDestroyOnLoad(transform.gameObject);
-    }
+    }*/
 }

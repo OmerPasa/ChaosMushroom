@@ -63,6 +63,7 @@ public class Mole_EnemyorBoss : MonoBehaviour
         {
             if (Rigidbody2D.velocity.x != 0.00f)
             {
+                Debug.Log(Rigidbody2D.velocity.x);
                 ChangeAnimationState(ENEMY_MOVEMENT);
                 
             }

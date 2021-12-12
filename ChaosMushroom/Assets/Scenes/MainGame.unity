@@ -31793,7 +31793,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 628780836802129036, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
       propertyPath: damage
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 628780836802129036, guid: 932ed75cc07bc75408450cf8ff5cf885, type: 3}
       propertyPath: playerScript

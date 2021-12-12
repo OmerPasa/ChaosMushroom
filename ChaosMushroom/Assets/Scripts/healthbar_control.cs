@@ -19,6 +19,7 @@ public class healthbar_control : MonoBehaviour
         if (health <= 0)
         {
             mainMenu.GameIsOver();
+            Debug.Log("Game is ooverrrr");
         }
     }
 }
