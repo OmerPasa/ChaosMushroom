@@ -65,7 +65,7 @@ public class PlayerScript : MonoBehaviour
         Playerhealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
         gm = GameObject.FindGameObjectWithTag("gm").GetComponent<CheckPointSystem>();
-        transform.position = gm.lastCheckPointPos;
+        //transform.position = gm.lastCheckPointPos;
     }
     void Update()
     {
