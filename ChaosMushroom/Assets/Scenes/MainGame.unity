@@ -28579,17 +28579,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cb0bdc6e2dec34994bf43c1f27b574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRange: 10
-  minRange: 10
-  closeAttackRange: 10
-  closeAttackTime: 10
-  bulletRange: 10
-  bulletTime: 10
-  movementSpeed: 10
-  jumpPower: 10
-  jumpTime: 10
+  viewRange: 20
+  minRange: 1.5
+  closeAttackRange: 1
+  closeAttackTime: 1
+  bulletRange: 30
+  bulletTime: 3
+  movementSpeed: 2
+  jumpPower: 8
+  jumpTime: 2
   character: {fileID: 706664054}
+  Character: {fileID: 706664056}
   bullet: {fileID: 6422635532049287424, guid: ce10a8d57b82ba849bb686efd2b0b0ac, type: 3}
+  isFacingLeft: 0
   Rigidbody2D: {fileID: 946488697}
   aiPath: {fileID: 1685958419}
   Mole_BossAuto: {fileID: 1685958415}
@@ -28599,8 +28601,8 @@ MonoBehaviour:
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 512
-  attackRange: 2.57
-  health: 4
+  attackRange: 1.5
+  health: 20
   damage: 3
 --- !u!50 &946488697
 Rigidbody2D:
@@ -28613,10 +28615,10 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 4.6817803
-  m_LinearDrag: 5
-  m_AngularDrag: 6
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 1
+  m_AngularDrag: 1
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -32133,8 +32135,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 706664058}
     - target: {fileID: 4985792647603814751, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985792647603814751, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985792647603814751, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -11.8
       objectReference: {fileID: 0}
     - target: {fileID: 4985792647603814751, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -32185,8 +32195,12 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4985792648336559246, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985792648336559246, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.96
+      value: 17.09
       objectReference: {fileID: 0}
     - target: {fileID: 4985792648336559246, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_LocalPosition.y

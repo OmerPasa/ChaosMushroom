@@ -14,8 +14,8 @@ public class Enemy_Melee : MonoBehaviour
     public float movementSpeed;
     public float jumpPower;
     public float jumpTime;
-    //public bool isFacingLeft = false;
     public GameObject character;
+    public Transform Character;
     public GameObject bullet;
 
     float closeATime2 = 0;
@@ -23,6 +23,7 @@ public class Enemy_Melee : MonoBehaviour
     float jumpTime2 = 0;
     bool grounded = true;
     bool pathBlocked = false;
+    public bool isFacingLeft = false;
     bool StopMoving;
 
     float tempX = 10000;
@@ -62,7 +63,16 @@ public class Enemy_Melee : MonoBehaviour
     }
     void FixedUpdate() 
     {
-        
+        if(transform.position.x < Character.position.x)
+        {
+            //turn object
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (transform.position.x > Character.position.x)
+        {
+            //turn object ro other side
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") || this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_TakeDamage"))
         {
             StopMoving = true;
@@ -93,40 +103,17 @@ public class Enemy_Melee : MonoBehaviour
         if (pos.y != tempY) { grounded = false; } 
         else { grounded = true; }
 
-        if (aiPath.desiredVelocity.x >= 0.01f)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }else if (aiPath.desiredVelocity.x <= 0.01f)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-
-        /*//tring clamp but in vain ? :/
-        if (transform.position.z <= -0.01f || transform.position.z >= 0.01f)
-        {
-            //Vector3 clampedPosition = transform.position;
-            float zPos = Mathf.Clamp(0, -1.00f, 1.00f);
-            transform.position = new Vector3(transform.position.x , transform.position.y , zPos);
-        }
-        */
-       // trying to slow down movement
-       //Rigidbody2D.velocity.x != 0.00f
-       // transform.hasChanged
         if (!isAttacking && !isTakingDamage && !isDying)
         {
             if (Rigidbody2D.velocity.x != 0.00f)
             {
-                Debug.Log(Rigidbody2D.velocity.x);
                 ChangeAnimationState(ENEMY_MOVEMENT);
-                
             }
             else
             {
                 ChangeAnimationState(ENEMY_IDLE);
-                
             }
         }
-
 
         Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
@@ -157,8 +144,7 @@ public class Enemy_Melee : MonoBehaviour
             Rigidbody2D rb2d = gameObject.GetComponent<Rigidbody2D>();
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2((karPos.x - pos.x) * movementSpeed / Mathf.Abs(karPos.x - pos.x), rb2d.velocity.y);
 
-            transform.localScale = new Vector3((karPos.x - pos.x) / Mathf.Abs(karPos.x - pos.x), 1, 1);
-            //isFacingLeft = false;
+            //transform.localScale = new Vector3((karPos.x - pos.x) / Mathf.Abs(karPos.x - pos.x), 1, 1);
         }
         else if ((pathBlocked && grounded))
         {
@@ -180,9 +166,10 @@ public class Enemy_Melee : MonoBehaviour
         
     private void OnTriggerEnter2D (Collider2D collision)
     {
-        if (collision.tag == "block")
+        if (collision.tag == "Ground")
         {
             pathBlocked = true;
+            Debug.Log("PATHBLOCKED");
             jump();
         }
       if(collision.CompareTag("Bullet"))
