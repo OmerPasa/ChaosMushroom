@@ -120,7 +120,7 @@ public class PlayerScript : MonoBehaviour
         if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
         {
             isGrounded = true;
-            Debug.Log("isGROUNDED");
+            Debug.Log("isGROUNDED_Player");
         }
         else
         {

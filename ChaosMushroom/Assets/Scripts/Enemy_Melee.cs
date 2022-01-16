@@ -5,6 +5,17 @@ using Pathfinding;
 
 public class Enemy_Melee : MonoBehaviour
 {
+    public GameObject character;
+    public Transform Character;
+    public Transform EyeRay;
+    public Transform MidRay;
+    public Transform groundCheck;
+    public GameObject bullet;
+    public Rigidbody2D Rigidbody2D;
+    public AIPath aiPath;
+    public Transform attackPos;
+    public LayerMask whatIsEnemies;
+    [SerializeField]private GameObject Mole_BossAuto;
     public float viewRange;
     public float minRange;
     public float closeAttackRange;
@@ -14,36 +25,29 @@ public class Enemy_Melee : MonoBehaviour
     public float movementSpeed;
     public float jumpPower;
     public float jumpTime;
-    public GameObject character;
-    public Transform Character;
-    public Transform EyeRay;
-    public Transform MidRay;
-    public GameObject bullet;
-
     float closeATime2 = 0;
     float bulletTime2 = 0;
     float jumpTime2 = 0;
-    float distance;
-    bool grounded = true;
-    bool pathBlocked = false;
-    bool StopMoving;
-    bool IsFacing_Left;
-
+    float distance = 3;
     float tempX = 10000;
     float tempY = 0;
-    public Rigidbody2D Rigidbody2D;
-    public AIPath aiPath;
-    [SerializeField]private GameObject Mole_BossAuto;
-    [SerializeField]private float timeBtwAttack;
-    [SerializeField]public float startTimeBtwAttack;
     private float damageDelay;
-
-    public Transform attackPos;
-    public LayerMask whatIsEnemies;
     public float attackRange;
     public int health = 4;
     public int damage = 3;
     int Count;
+    [SerializeField]private float timeBtwAttack;
+    [SerializeField]public float startTimeBtwAttack;
+    bool grounded = true;
+    bool pathBlocked = false;
+    bool pathBlocked_ButCANJump;
+    bool StopMoving;
+    bool IsFacing_Left;
+    private bool isAttacking;
+    private bool isTakingDamage;
+    private bool isDying;
+    private Animator animator;
+    private string currentAnimaton;
     const string ENEMY_IDLE = "Mole_Idle";
     const string ENEMY_TAKEDAMAGE = "Mole_TakeDamage";
     const string ENEMY_DEATH = "Mole_Explode";
@@ -51,11 +55,6 @@ public class Enemy_Melee : MonoBehaviour
     const string ENEMY_JUMP = "Mole_Jump";
     const string ENEMY_JUMPATTACK = "Mole_JumpAttack";
     const string ENEMY_MOVEMENT = "Mole_Movement";
-    private Animator animator;
-    private string currentAnimaton;
-    private bool isAttacking;
-    private bool isTakingDamage;
-    private bool isDying;
     private void Start() 
     {
         animator = GetComponent<Animator>();
@@ -64,6 +63,15 @@ public class Enemy_Melee : MonoBehaviour
     }
     void Update() 
     {
+        if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
+        {
+            grounded = true;
+            Debug.Log("isGROUNDED_EnemyMelee");
+        }
+        else
+        {
+            grounded = false;
+        }
         //===================================================
         //flipping code
         if(transform.position.x < Character.position.x)
@@ -78,27 +86,29 @@ public class Enemy_Melee : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
             IsFacing_Left = false;
         }
-        print(IsFacing_Left);
         //=====================================================================
         //Raycast 
         var castDist = distance;
+        if (IsFacing_Left)
+        {
+            castDist =-distance;
+        }
 
-        Vector2 endPos = MidRay.position + Vector3.right * 10; 
+        Vector2 endPos = MidRay.position + Vector3.left * castDist; 
         RaycastHit2D Midray = Physics2D.Linecast(MidRay.position, endPos , 1 << LayerMask.NameToLayer("Ground"));
         
         if (Midray.collider != null)
         {
             if (Midray.collider.gameObject.CompareTag("Ground"))
             {
-                pathBlocked = true;
+                pathBlocked_ButCANJump = true;
+
             }
         }
-        print("START" + MidRay.position);
-        print("FİNİSH" + endPos);
         //Drawing line
         Debug.DrawLine(MidRay.position,endPos, Color.green,Time.deltaTime * 10);
         
-        Vector2 endPos1 = EyeRay.position + Vector3.right * 10; 
+        Vector2 endPos1 = EyeRay.position + Vector3.left * castDist; 
         RaycastHit2D Eyeray = Physics2D.Linecast(EyeRay.position, endPos1 , 1 << LayerMask.NameToLayer("Ground"));
         
         if (Eyeray.collider != null)
@@ -111,6 +121,7 @@ public class Enemy_Melee : MonoBehaviour
         //drawing line
         Debug.DrawLine(EyeRay.position,endPos1, Color.green,Time.deltaTime * 10);
         //================================================================
+        //MOVİNG SCRİPTS
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") || this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_TakeDamage"))
         {
@@ -125,6 +136,7 @@ public class Enemy_Melee : MonoBehaviour
         {
             if (!StopMoving)
             {
+                Debug.Log("IS_AImoving?" +  "MOVİNG");
                 moveTowardCharacter(karPos, pos);
             }
             
@@ -139,8 +151,8 @@ public class Enemy_Melee : MonoBehaviour
         }
 
 
-        if (pos.y != tempY) { grounded = false; } 
-        else { grounded = true; }
+        //if (pos.y != tempY) { grounded = false; } 
+        //else { grounded = true; }
 
         if (!isAttacking && !isTakingDamage && !isDying)
         {
@@ -153,7 +165,7 @@ public class Enemy_Melee : MonoBehaviour
                 ChangeAnimationState(ENEMY_IDLE);
             }
         }
-
+        /// DETECTİNG POSSİBLE DAMAGE DEALABLE OBJECTS
         Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
         if (timeBtwAttack <= 0)
@@ -175,6 +187,8 @@ public class Enemy_Melee : MonoBehaviour
         {
             timeBtwAttack -= Time.deltaTime;
         }
+            Debug.Log("pathBlocked_ButCANJump" + pathBlocked_ButCANJump);
+            Debug.Log("Grounded:" + grounded);
     }
     void moveTowardCharacter(Vector3 karPos, Vector3 pos)
     {
@@ -185,8 +199,9 @@ public class Enemy_Melee : MonoBehaviour
 
             //transform.localScale = new Vector3((karPos.x - pos.x) / Mathf.Abs(karPos.x - pos.x), 1, 1);
         }
-        else if ((pathBlocked && grounded))
+        else if ((pathBlocked_ButCANJump && grounded))
         {
+            Debug.Log("JUMPDECLAREEDDDDDDDD");
             jump();
         }
     }
@@ -202,47 +217,8 @@ public class Enemy_Melee : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
-    /*
-    void Path_Blocked()
-    {
-        var castDist = distance;
-
-        Vector2 endPos = MidRay.position + Vector3.right * distance; 
-        RaycastHit2D Midray = Physics2D.Linecast(MidRay.position, endPos , 1 << LayerMask.NameToLayer("Ground"));
-        
-        if (Midray.collider != null)
-        {
-            if (Midray.collider.gameObject.CompareTag("Ground"))
-            {
-                pathBlocked = true;
-            }
-        }
-        print("START" + MidRay.position);
-        print("FİNİSH" + Midray.point);
-        Debug.DrawLine(MidRay.position, Midray.point, Color.green);
-        
-        Vector2 endPos1 = EyeRay.position + Vector3.right * distance; 
-        RaycastHit2D Eyeray = Physics2D.Linecast(EyeRay.position, endPos1 , 1 << LayerMask.NameToLayer("Ground"));
-        
-        if (Eyeray.collider != null)
-        {
-            if (Eyeray.collider.gameObject.CompareTag("Ground"))
-            {
-                pathBlocked = true;
-            }
-        }
-        Debug.DrawLine(EyeRay.position,Eyeray.point, Color.green);
-    }
-    
-    */
     private void OnTriggerEnter2D (Collider2D collision)
     {
-        if (collision.tag == "Ground")
-        {
-            grounded = true;
-            Debug.Log("PATHBLOCKED" + "GROUNDED");
-            jump();
-        }
       if(collision.CompareTag("Bullet"))
     {
         isTakingDamage = true;
@@ -275,8 +251,9 @@ public class Enemy_Melee : MonoBehaviour
         animator.Play(newAnimation);
         currentAnimaton = newAnimation;
     }
-    void jump ()
+    void jump()
     {
+        Debug.Log("AI_JUMPİNG");
         if (jumpTime - (Time.realtimeSinceStartup - jumpTime2) <= 0 )
         {
             jumpTime2 = Time.realtimeSinceStartup;
