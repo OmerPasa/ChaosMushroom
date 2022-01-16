@@ -28,7 +28,7 @@ public class Enemy_Melee : MonoBehaviour
     float closeATime2 = 0;
     float bulletTime2 = 0;
     float jumpTime2 = 0;
-    float distance = 3;
+    float distance = 1;
     float tempX = 10000;
     float tempY = 0;
     private float damageDelay;
@@ -149,6 +149,11 @@ public class Enemy_Melee : MonoBehaviour
         {
            // shoot(karPos, pos);
         }
+        if ((pathBlocked_ButCANJump && grounded))
+        {
+            Debug.Log("JUMPDECLAREEDDDDDDDD");
+            jump();
+        }
 
 
         //if (pos.y != tempY) { grounded = false; } 
@@ -189,6 +194,7 @@ public class Enemy_Melee : MonoBehaviour
         }
             Debug.Log("pathBlocked_ButCANJump" + pathBlocked_ButCANJump);
             Debug.Log("Grounded:" + grounded);
+            
     }
     void moveTowardCharacter(Vector3 karPos, Vector3 pos)
     {
@@ -198,11 +204,6 @@ public class Enemy_Melee : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2((karPos.x - pos.x) * movementSpeed / Mathf.Abs(karPos.x - pos.x), rb2d.velocity.y);
 
             //transform.localScale = new Vector3((karPos.x - pos.x) / Mathf.Abs(karPos.x - pos.x), 1, 1);
-        }
-        else if ((pathBlocked_ButCANJump && grounded))
-        {
-            Debug.Log("JUMPDECLAREEDDDDDDDD");
-            jump();
         }
     }
 
