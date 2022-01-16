@@ -46,6 +46,7 @@ public class Enemy_Melee : MonoBehaviour
     private bool isAttacking;
     private bool isTakingDamage;
     private bool isDying;
+    private bool Is_jumping;
     private Animator animator;
     private string currentAnimaton;
     const string ENEMY_IDLE = "Mole_Idle";
@@ -104,6 +105,9 @@ public class Enemy_Melee : MonoBehaviour
                 pathBlocked_ButCANJump = true;
 
             }
+        }else
+        {
+            pathBlocked_ButCANJump = false;
         }
         //Drawing line
         Debug.DrawLine(MidRay.position,endPos, Color.green,Time.deltaTime * 10);
@@ -136,7 +140,6 @@ public class Enemy_Melee : MonoBehaviour
         {
             if (!StopMoving)
             {
-                Debug.Log("IS_AImoving?" +  "MOVİNG");
                 moveTowardCharacter(karPos, pos);
             }
             
@@ -149,11 +152,7 @@ public class Enemy_Melee : MonoBehaviour
         {
            // shoot(karPos, pos);
         }
-        if ((pathBlocked_ButCANJump && grounded))
-        {
-            Debug.Log("JUMPDECLAREEDDDDDDDD");
-            jump();
-        }
+
 
 
         //if (pos.y != tempY) { grounded = false; } 
@@ -193,17 +192,26 @@ public class Enemy_Melee : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         }
             Debug.Log("pathBlocked_ButCANJump" + pathBlocked_ButCANJump);
-            Debug.Log("Grounded:" + grounded);
             
     }
     void moveTowardCharacter(Vector3 karPos, Vector3 pos)
     {
+        Debug.Log("IS_AImoving?" +  "MOVİNG");
         if (Mathf.Abs(karPos.x - pos.x) > minRange && !(pathBlocked&&grounded))
         {
             Rigidbody2D rb2d = gameObject.GetComponent<Rigidbody2D>();
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2((karPos.x - pos.x) * movementSpeed / Mathf.Abs(karPos.x - pos.x), rb2d.velocity.y);
 
             //transform.localScale = new Vector3((karPos.x - pos.x) / Mathf.Abs(karPos.x - pos.x), 1, 1);
+        }
+        if ((pathBlocked_ButCANJump && grounded))
+        {
+            if(!Is_jumping)
+            {
+            Debug.Log("JUMPDECLAREEDDDDDDDD");
+            jump();
+            Is_jumping= true;
+            }
         }
     }
 
@@ -240,6 +248,7 @@ public class Enemy_Melee : MonoBehaviour
     void DamageDelayComplete()
     {
         isTakingDamage = false;
+        Is_jumping = false;
     }
     void Die()
     {
@@ -260,7 +269,7 @@ public class Enemy_Melee : MonoBehaviour
             jumpTime2 = Time.realtimeSinceStartup;
 
             gameObject.GetComponent<Rigidbody2D>().velocity += new Vector2(0f, jumpPower);
-
+            Invoke("DamageDelayComplete", 2);
         }
     }
 
