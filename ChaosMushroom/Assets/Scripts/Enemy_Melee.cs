@@ -27,6 +27,7 @@ public class Enemy_Melee : MonoBehaviour
     bool grounded = true;
     bool pathBlocked = false;
     bool StopMoving;
+    bool IsFacing_Left;
 
     float tempX = 10000;
     float tempY = 0;
@@ -63,21 +64,21 @@ public class Enemy_Melee : MonoBehaviour
     }
     void Update() 
     {
-        //deneme
-        Debug.DrawLine(this.transform.position, this.transform.position + this.transform.right, Color.red, 1000);
-
         //===================================================
         //flipping code
         if(transform.position.x < Character.position.x)
         {
             //turn object
             transform.localScale = new Vector3(-1f, 1f, 1f);
+            IsFacing_Left = true;
         }
         else if (transform.position.x > Character.position.x)
         {
             //turn object ro other side
             transform.localScale = new Vector3(1f, 1f, 1f);
+            IsFacing_Left = false;
         }
+        print(IsFacing_Left);
         //=====================================================================
         //Raycast 
         var castDist = distance;
