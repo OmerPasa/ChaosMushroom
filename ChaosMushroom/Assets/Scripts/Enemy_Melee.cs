@@ -16,26 +16,25 @@ public class Enemy_Melee : MonoBehaviour
     public float jumpTime;
     public GameObject character;
     public Transform Character;
+    public Transform EyeRay;
+    public Transform MidRay;
     public GameObject bullet;
 
     float closeATime2 = 0;
     float bulletTime2 = 0;
     float jumpTime2 = 0;
+    float distance;
     bool grounded = true;
     bool pathBlocked = false;
-    public bool isFacingLeft = false;
     bool StopMoving;
 
     float tempX = 10000;
     float tempY = 0;
     public Rigidbody2D Rigidbody2D;
     public AIPath aiPath;
-    [SerializeField]
-    private GameObject Mole_BossAuto;
-    [SerializeField]
-    private float timeBtwAttack;
-    [SerializeField]
-    public float startTimeBtwAttack;
+    [SerializeField]private GameObject Mole_BossAuto;
+    [SerializeField]private float timeBtwAttack;
+    [SerializeField]public float startTimeBtwAttack;
     private float damageDelay;
 
     public Transform attackPos;
@@ -59,10 +58,16 @@ public class Enemy_Melee : MonoBehaviour
     private void Start() 
     {
         animator = GetComponent<Animator>();
+        Rigidbody2D = GetComponent<Rigidbody2D>();
         //Rigidbody2D.constraints = RigidbodyConstraints.FreezePositionZ;
     }
-    void FixedUpdate() 
+    void Update() 
     {
+        //deneme
+        Debug.DrawLine(this.transform.position, this.transform.position + this.transform.right, Color.red, 1000);
+
+        //===================================================
+        //flipping code
         if(transform.position.x < Character.position.x)
         {
             //turn object
@@ -73,6 +78,39 @@ public class Enemy_Melee : MonoBehaviour
             //turn object ro other side
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
+        //=====================================================================
+        //Raycast 
+        var castDist = distance;
+
+        Vector2 endPos = MidRay.position + Vector3.right * 10; 
+        RaycastHit2D Midray = Physics2D.Linecast(MidRay.position, endPos , 1 << LayerMask.NameToLayer("Ground"));
+        
+        if (Midray.collider != null)
+        {
+            if (Midray.collider.gameObject.CompareTag("Ground"))
+            {
+                pathBlocked = true;
+            }
+        }
+        print("START" + MidRay.position);
+        print("FİNİSH" + endPos);
+        //Drawing line
+        Debug.DrawLine(MidRay.position,endPos, Color.green,Time.deltaTime * 10);
+        
+        Vector2 endPos1 = EyeRay.position + Vector3.right * 10; 
+        RaycastHit2D Eyeray = Physics2D.Linecast(EyeRay.position, endPos1 , 1 << LayerMask.NameToLayer("Ground"));
+        
+        if (Eyeray.collider != null)
+        {
+            if (Eyeray.collider.gameObject.CompareTag("Ground"))
+            {
+                pathBlocked = true;
+            }
+        }
+        //drawing line
+        Debug.DrawLine(EyeRay.position,endPos1, Color.green,Time.deltaTime * 10);
+        //================================================================
+
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") || this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_TakeDamage"))
         {
             StopMoving = true;
@@ -163,13 +201,45 @@ public class Enemy_Melee : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
+    /*
+    void Path_Blocked()
+    {
+        var castDist = distance;
+
+        Vector2 endPos = MidRay.position + Vector3.right * distance; 
+        RaycastHit2D Midray = Physics2D.Linecast(MidRay.position, endPos , 1 << LayerMask.NameToLayer("Ground"));
         
+        if (Midray.collider != null)
+        {
+            if (Midray.collider.gameObject.CompareTag("Ground"))
+            {
+                pathBlocked = true;
+            }
+        }
+        print("START" + MidRay.position);
+        print("FİNİSH" + Midray.point);
+        Debug.DrawLine(MidRay.position, Midray.point, Color.green);
+        
+        Vector2 endPos1 = EyeRay.position + Vector3.right * distance; 
+        RaycastHit2D Eyeray = Physics2D.Linecast(EyeRay.position, endPos1 , 1 << LayerMask.NameToLayer("Ground"));
+        
+        if (Eyeray.collider != null)
+        {
+            if (Eyeray.collider.gameObject.CompareTag("Ground"))
+            {
+                pathBlocked = true;
+            }
+        }
+        Debug.DrawLine(EyeRay.position,Eyeray.point, Color.green);
+    }
+    
+    */
     private void OnTriggerEnter2D (Collider2D collision)
     {
         if (collision.tag == "Ground")
         {
-            pathBlocked = true;
-            Debug.Log("PATHBLOCKED");
+            grounded = true;
+            Debug.Log("PATHBLOCKED" + "GROUNDED");
             jump();
         }
       if(collision.CompareTag("Bullet"))

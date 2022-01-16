@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &7137791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7137792}
+  m_Layer: 0
+  m_Name: EyeRay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7137792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7137791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 946488692}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &80544436
 GameObject:
   m_ObjectHideFlags: 0
@@ -27698,6 +27728,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   main: {fileID: 1328841468}
   distance: 0
+--- !u!1 &489382949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 489382950}
+  m_Layer: 0
+  m_Name: MidRay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &489382950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489382949}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.66, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 946488692}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &577010709
 GameObject:
   m_ObjectHideFlags: 0
@@ -28567,6 +28627,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4985792647603814744, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
   m_PrefabInstance: {fileID: 4985792646655468443}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &946488692 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4985792647603814751, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+  m_PrefabInstance: {fileID: 4985792646655468443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &946488693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28579,7 +28644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cb0bdc6e2dec34994bf43c1f27b574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRange: 20
+  viewRange: 10
   minRange: 1.5
   closeAttackRange: 1
   closeAttackTime: 1
@@ -28590,8 +28655,9 @@ MonoBehaviour:
   jumpTime: 2
   character: {fileID: 706664054}
   Character: {fileID: 706664056}
+  EyeRay: {fileID: 7137792}
+  MidRay: {fileID: 489382950}
   bullet: {fileID: 6422635532049287424, guid: ce10a8d57b82ba849bb686efd2b0b0ac, type: 3}
-  isFacingLeft: 0
   Rigidbody2D: {fileID: 946488697}
   aiPath: {fileID: 1685958419}
   Mole_BossAuto: {fileID: 1685958415}
@@ -28604,6 +28670,22 @@ MonoBehaviour:
   attackRange: 1.5
   health: 20
   damage: 3
+--- !u!70 &946488696
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946488691}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.14067769, y: -0.018632174}
+  m_Size: {x: 1.7186446, y: 2.3497071}
+  m_Direction: 0
 --- !u!50 &946488697
 Rigidbody2D:
   serializedVersion: 4
@@ -32144,7 +32226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4985792647603814751, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4985792647603814751, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -32200,7 +32282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4985792648336559246, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.09
+      value: 23.08
       objectReference: {fileID: 0}
     - target: {fileID: 4985792648336559246, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -32245,6 +32327,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4985792648336559243, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
     - {fileID: 4985792647603814750, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
+    - {fileID: 4985792647603814739, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c44574eb0f238e74a9925bacc7b560ad, type: 3}
 --- !u!1001 &6079774874589178038
 PrefabInstance:

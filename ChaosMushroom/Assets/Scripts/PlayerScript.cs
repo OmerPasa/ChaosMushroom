@@ -73,6 +73,8 @@ public class PlayerScript : MonoBehaviour
     }
     void Update()
     {
+
+        Debug.DrawLine(this.transform.position, this.transform.position + this.transform.right, Color.red, 1000);
         if (Playerhealth <= 0)
         {
             isntDead = false;
