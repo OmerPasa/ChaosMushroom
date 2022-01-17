@@ -171,6 +171,7 @@ public class PlayerScript : MonoBehaviour
                     ChangeAnimationState(PLAYER_ATTACK);
                     BackGroundM.volume = 0.4f;
                     AfterFiringMusic.Play();
+                    CinemachineShake.Instance.ShakeCamera(1f, .5f);
                 }
                 else
                 {
@@ -186,6 +187,7 @@ public class PlayerScript : MonoBehaviour
         isAttacking = false;
         BackGroundM.volume = 1f;
         Debug.Log("ATTACKCOMPLETE");
+        CinemachineShake.Instance.ShakeCamera(0f, 0f);
     }
     public void Die()
     {
