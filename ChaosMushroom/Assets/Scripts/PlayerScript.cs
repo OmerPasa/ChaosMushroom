@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System;
 public class PlayerScript : MonoBehaviour
 {
+    public ParticleSystem dust;
     [SerializeField]
     private float runSpeed;
 
@@ -103,6 +104,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         { 
             isJumpPressed = true;
+            dust.Play();
         }
 
         //space Atatck key pressed?
@@ -153,6 +155,7 @@ public class PlayerScript : MonoBehaviour
             rb2d.AddForce(new Vector2(0, jumpForce));
             isJumpPressed = false;
             ChangeAnimationState(PLAYER_JUMP);
+            
         }
 
         //attack
@@ -225,6 +228,10 @@ public class PlayerScript : MonoBehaviour
 
         animator.Play(newAnimation);
         currentAnimaton = newAnimation;
+    }
+    void CreateDust()
+    {
+        dust.Play();
     }
 
 }
