@@ -28,6 +28,7 @@ public class PlayerScript : MonoBehaviour
     private bool isAttackPressed;
     private bool isAttacking;
     private bool isntDead;
+    private bool DustActive;
     private bool TakingDamage;
     AudioSource AfterFiringMusic;
     public AudioSource BackGroundM;
@@ -104,7 +105,6 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         { 
             isJumpPressed = true;
-            dust.Play();
         }
 
         //space Atatck key pressed?
@@ -119,6 +119,8 @@ public class PlayerScript : MonoBehaviour
     //=====================================================
     private void FixedUpdate()
     {
+        ///=================================================
+        //Ground and waterchecks
         if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
         {
             isGrounded = true;
@@ -135,6 +137,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         //------------------------------------------
+        //animation checks
         
         if (isGrounded && !isAttacking && isntDead && !TakingDamage)
         {
@@ -183,6 +186,19 @@ public class PlayerScript : MonoBehaviour
                 }
                 Invoke("AttackComplete", attackDelay);
             }
+        }
+        Debug.Log("SPEED FOR PLAYER" +  rb2d.velocity.magnitude);
+
+        if (rb2d.velocity.magnitude > 1)
+        {
+            DustActive = true;
+        }else
+        {
+            DustActive = false;
+        }
+        if (DustActive)
+        {
+            dust.Play();
         }
     }
     void AttackComplete()
