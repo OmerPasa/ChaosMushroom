@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
-public class Enemy_Melee : MonoBehaviour
+public class Enemy_Yaya_Turtle : MonoBehaviour
 {
     //public GameObject character;
     public Transform Character;
@@ -29,7 +28,7 @@ public class Enemy_Melee : MonoBehaviour
     float distance = 1;
     float tempX = 10000;
     float tempY = 0;
-    private float damageDelay;
+    private float damageDelay = 1;
     public float attackRange;
     public int health = 4;
     public int damage = 3;
@@ -47,13 +46,10 @@ public class Enemy_Melee : MonoBehaviour
     private bool Is_jumping;
     private Animator animator;
     private string currentAnimaton;
-    const string ENEMY_IDLE = "Mole_Idle";
-    const string ENEMY_TAKEDAMAGE = "Mole_TakeDamage";
-    const string ENEMY_DEATH = "Mole_Explode";
-    const string ENEMY_ATTACK = "Mole_Attack";
-    const string ENEMY_JUMP = "Mole_Jump";
-    const string ENEMY_JUMPATTACK = "Mole_JumpAttack";
-    const string ENEMY_MOVEMENT = "Mole_Movement";
+    const string ENEMY_IDLE = "Turtle_Idle";
+    const string ENEMY_TAKEDAMAGE = "Turtle_TakeDamage";
+    const string ENEMY_DEATH = "Turtle_Death";
+    const string ENEMY_MOVEMENT = "Turtle_Movement";
     private void Start() 
     {
         animator = GetComponent<Animator>();
@@ -178,7 +174,7 @@ public class Enemy_Melee : MonoBehaviour
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
             isAttacking = true;
-            ChangeAnimationState(ENEMY_ATTACK);
+            ChangeAnimationState(ENEMY_MOVEMENT);
             damageDelay = animator.GetCurrentAnimatorStateInfo(0).length;
             Invoke("AttackComplete", damageDelay);
             enemiesInRange[i].GetComponent<PlayerScript>().PlayerTakeDamage(damage);
@@ -306,4 +302,3 @@ public class Enemy_Melee : MonoBehaviour
         }
     }
 }
-
