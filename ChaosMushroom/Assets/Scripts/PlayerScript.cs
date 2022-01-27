@@ -112,6 +112,9 @@ public class PlayerScript : MonoBehaviour
         {
             isAttackPressed = true;
         }
+
+        //Q tuşuna basıcak ve farenin gösterdiği yere 
+        //GRAPLİNG-GUN
     }
 
     //=====================================================
