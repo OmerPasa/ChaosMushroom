@@ -73,6 +73,8 @@ public class Enemy_Melee : MonoBehaviour
         }
         //===================================================
         //flipping code
+        if (Character != null)
+        {
         if(transform.position.x < Character.position.x)
         {
             //turn object
@@ -84,6 +86,7 @@ public class Enemy_Melee : MonoBehaviour
             //turn object ro other side
             transform.localScale = new Vector3(1f, 1f, 1f);
             IsFacing_Left = false;
+        }
         }
         //=====================================================================
         //Raycast 

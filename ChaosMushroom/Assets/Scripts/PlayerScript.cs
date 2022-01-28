@@ -190,7 +190,7 @@ public class PlayerScript : MonoBehaviour
                 Invoke("AttackComplete", attackDelay);
             }
         }
-        Debug.Log("SPEED FOR PLAYER" +  rb2d.velocity.magnitude);
+        //Debug.Log("SPEED FOR PLAYER" +  rb2d.velocity.magnitude);
 
         if (rb2d.velocity.magnitude > 1)
         {
