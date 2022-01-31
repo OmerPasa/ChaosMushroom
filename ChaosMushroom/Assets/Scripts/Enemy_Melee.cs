@@ -127,7 +127,8 @@ public class Enemy_Melee : MonoBehaviour
         Debug.DrawLine(EyeRay.position,endPos1, Color.green,Time.deltaTime * 10);
         //================================================================
         //MOVİNG SCRİPTS
-
+        if (Character != null)
+        {
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") || this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_TakeDamage"))
         {
             StopMoving = true;
@@ -153,7 +154,7 @@ public class Enemy_Melee : MonoBehaviour
         {
            // shoot(karPos, pos);
         }
-
+        }
 
 
         //if (pos.y != tempY) { grounded = false; } 

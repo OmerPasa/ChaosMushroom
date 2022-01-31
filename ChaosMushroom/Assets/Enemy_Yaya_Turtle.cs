@@ -69,6 +69,8 @@ public class Enemy_Yaya_Turtle : MonoBehaviour
         }
         //===================================================
         //flipping code
+        if (Character != null)
+        {
         if(transform.position.x < Character.position.x)
         {
             //turn object
@@ -80,6 +82,7 @@ public class Enemy_Yaya_Turtle : MonoBehaviour
             //turn object ro other side
             transform.localScale = new Vector3(1f, 1f, 1f);
             IsFacing_Left = false;
+        }
         }
         //=====================================================================
         //Raycast 
@@ -121,6 +124,8 @@ public class Enemy_Yaya_Turtle : MonoBehaviour
         //================================================================
         //MOVİNG SCRİPTS
 
+        if (Character != null)
+        {
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") || this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_TakeDamage"))
         {
             StopMoving = true;
@@ -146,7 +151,7 @@ public class Enemy_Yaya_Turtle : MonoBehaviour
         {
            // shoot(karPos, pos);
         }
-
+        }
 
 
         //if (pos.y != tempY) { grounded = false; } 
