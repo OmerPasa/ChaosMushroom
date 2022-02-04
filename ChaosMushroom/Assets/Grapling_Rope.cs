@@ -97,6 +97,8 @@ public class Grapling_Rope : MonoBehaviour
 
     void DrawRopeWaves()
     {
+
+        Debug.Log("Grapple Point (Rope) =" + grapplingGun.grapplePoint);
         for (int i = 0; i < percision; i++)
         {
             float delta = (float)i / ((float)percision - 1f);

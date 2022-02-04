@@ -27,8 +27,6 @@ public class Enemy_Melee : MonoBehaviour
     float bulletTime2 = 0;
     float jumpTime2 = 0;
     float distance = 1;
-    float tempX = 10000;
-    float tempY = 0;
     private float damageDelay;
     public float attackRange;
     public int health = 4;
@@ -203,8 +201,6 @@ public class Enemy_Melee : MonoBehaviour
         {
             Rigidbody2D rb2d = gameObject.GetComponent<Rigidbody2D>();
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2((karPos.x - pos.x) * movementSpeed / Mathf.Abs(karPos.x - pos.x), rb2d.velocity.y);
-
-            //transform.localScale = new Vector3((karPos.x - pos.x) / Mathf.Abs(karPos.x - pos.x), 1, 1);
         }
         if ((pathBlocked_ButCANJump && grounded))
         {

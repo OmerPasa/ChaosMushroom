@@ -26,8 +26,6 @@ public class Enemy_Yaya_Turtle : MonoBehaviour
     float bulletTime2 = 0;
     float jumpTime2 = 0;
     float distance = 1;
-    float tempX = 10000;
-    float tempY = 0;
     private float damageDelay = 1;
     public float attackRange;
     public int health = 4;

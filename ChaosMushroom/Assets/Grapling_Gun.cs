@@ -15,6 +15,7 @@ public class Grapling_Gun : MonoBehaviour
     public Camera m_camera;
 
     [Header("Transform Ref:")]
+    //object himself
     public Transform gunHolder;
     public Transform gunPivot;
     public Transform firePoint;
@@ -71,7 +72,7 @@ public class Grapling_Gun : MonoBehaviour
             }
             else
             {
-                Vector2 mousePos = m_camera.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 mousePos = m_camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, m_camera.transform.position.z));
                 RotateGun(mousePos, true); 
             }
 
@@ -95,7 +96,9 @@ public class Grapling_Gun : MonoBehaviour
         }
         else
         {
-            Vector2 mousePos = m_camera.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos = m_camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, m_camera.transform.position.z)) * -1;
+            
+            //Debug.Log("MOUSE POS"+mousePos);
             RotateGun(mousePos, true);
         }
     }
@@ -117,7 +120,8 @@ public class Grapling_Gun : MonoBehaviour
 
     void SetGrapplePoint()
     {
-        Vector2 distanceVector = m_camera.ScreenToWorldPoint(Input.mousePosition) - gunPivot.position;
+        Vector2 distanceVector = m_camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, m_camera.nearClipPlane)) - gunPivot.position;
+        Debug.Log("DistanceVector =" + distanceVector);
         if (Physics2D.Raycast(firePoint.position, distanceVector.normalized))
         {
             RaycastHit2D _hit = Physics2D.Raycast(firePoint.position, distanceVector.normalized);
@@ -125,9 +129,11 @@ public class Grapling_Gun : MonoBehaviour
             {
                 if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistnace || !hasMaxDistance)
                 {
+                    Debug.Log("_hit point =" + _hit.point);
                     grapplePoint = _hit.point;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleRope.enabled = true;
+                    Debug.Log("Grapple Point =" + grapplePoint);
                 }
             }
         }
