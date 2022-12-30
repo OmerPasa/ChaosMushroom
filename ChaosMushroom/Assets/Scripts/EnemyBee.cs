@@ -32,6 +32,7 @@ public class EnemyBee : MonoBehaviour
     private void Start() 
     {
         animator = GetComponent<Animator>();
+        playerScript = GameObject.Find("PLAYERRRRRRRRR").GetComponent<PlayerScript>();
     }
     void Update() 
     {

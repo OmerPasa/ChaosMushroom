@@ -69,6 +69,7 @@ public class PlayerScript : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("gm").GetComponent<CheckPointSystem>();
         if (Playerhealth == 0)
         {
+            
             transform.position = gm.lastCheckPointPos;
         }
         

@@ -6,6 +6,7 @@ using Pathfinding;
 public class Enemy_Melee : MonoBehaviour
 {
     //public GameObject character;
+    public GameObject GM;
     public Transform Character;
     public Transform EyeRay;
     public Transform MidRay;
@@ -56,6 +57,8 @@ public class Enemy_Melee : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         Rigidbody2D = GetComponent<Rigidbody2D>();
+        GM = GameObject.Find("GameManager");
+        Character = GameObject.Find("PLAYERRRRRRRRR").transform;
         //Rigidbody2D.constraints = RigidbodyConstraints.FreezePositionZ;
     }
     void Update() 
@@ -250,6 +253,7 @@ public class Enemy_Melee : MonoBehaviour
     }
     void Die()
     {
+        GM.GetComponent<GameManager>().EndGame();
         Destroy(this);
     }
     void ChangeAnimationState(string newAnimation)
