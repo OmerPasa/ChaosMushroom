@@ -20,8 +20,8 @@ public class Enemy_Yaya_Turtle : MonoBehaviour
     public float bulletRange;
     public float bulletTime;
     public float movementSpeed;
-    public float jumpPower;
-    public float jumpTime;
+    public float jumpPower = 4f;
+    public float jumpTime = 2f;
     float closeATime2 = 0;
     float bulletTime2 = 0;
     float jumpTime2 = 0;
@@ -50,6 +50,7 @@ public class Enemy_Yaya_Turtle : MonoBehaviour
     const string ENEMY_MOVEMENT = "Turtle_Movement";
     private void Start() 
     {
+        Character = GameObject.Find("PLAYERRRRRRRRR").transform;
         animator = GetComponent<Animator>();
         Rigidbody2D = GetComponent<Rigidbody2D>();
         //Rigidbody2D.constraints = RigidbodyConstraints.FreezePositionZ;
@@ -238,7 +239,7 @@ public class Enemy_Yaya_Turtle : MonoBehaviour
         {
             isDying = true;
             ChangeAnimationState(ENEMY_DEATH);
-            Debug.Log("MOLE_DIED");
+            Debug.Log("Turtle_DIED");
             Invoke("Die",0.9f);
         }
     }

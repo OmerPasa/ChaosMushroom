@@ -27811,6 +27811,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Tilemap1ma\u011Fra"
       objectReference: {fileID: 0}
+    - target: {fileID: 7546451853377472712, guid: 318df257923b241479fdaeb6009e2528, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7546451853377472714, guid: 318df257923b241479fdaeb6009e2528, type: 3}
       propertyPath: m_SortingOrder
       value: 1

@@ -51,19 +51,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cb0bdc6e2dec34994bf43c1f27b574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
+  GM: {fileID: 0}
   Character: {fileID: 0}
   EyeRay: {fileID: 1019566299943647258}
   MidRay: {fileID: 1019566299461596732}
   groundCheck: {fileID: 1019566300270660498}
   bullet: {fileID: 6422635532049287424, guid: ce10a8d57b82ba849bb686efd2b0b0ac, type: 3}
   Rigidbody2D: {fileID: 1019566300078217059}
-  aiPath: {fileID: 0}
   attackPos: {fileID: 1019566299958745686}
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 512
-  Mole_BossAuto: {fileID: 0}
   viewRange: 10
   minRange: 1.5
   closeAttackRange: 1
@@ -182,8 +180,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.14067769, y: 0.030622005}
-  m_Size: {x: 1.7186446, y: 2.2511988}
+  m_Offset: {x: -0.05208969, y: -0.26270163}
+  m_Size: {x: 1.4897575, y: 1.6478231}
   m_Direction: 0
 --- !u!1 &1019566299461596735
 GameObject:

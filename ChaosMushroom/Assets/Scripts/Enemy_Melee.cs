@@ -130,7 +130,7 @@ public class Enemy_Melee : MonoBehaviour
         //MOVİNG SCRİPTS
         if (Character != null)
         {
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") || this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_TakeDamage"))
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack"))
         {
             StopMoving = true;
         }else
